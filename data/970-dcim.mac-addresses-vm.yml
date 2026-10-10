@@ -1,0 +1,5 @@
+endpoint: dcim/mac-addresses
+lookup: [mac_address]
+objects:
+  - {mac_address: "02:00:5E:20:00:01", assigned_object_type: virtualization.vminterface,
+     assigned_object_id: "@virtualization/interfaces?virtual_machine=r2-d2&name=eth0", description: VM MAC}

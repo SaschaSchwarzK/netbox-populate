@@ -1,0 +1,5 @@
+endpoint: extras/bookmarks
+lookup: [user, object_type, object_id]
+objects:
+  - {user: "@users/users?username=admin", object_type: dcim.site, object_id: "@dcim/sites?slug=death-star-ii"}
+  - {user: "@users/users?username=luke.skywalker", object_type: dcim.device, object_id: "@dcim/devices?name=nexus-core-01&site=death-star-ii"}

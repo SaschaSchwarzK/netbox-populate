@@ -1,0 +1,6 @@
+endpoint: tenancy/tenant-groups
+lookup: [slug]
+objects:
+  - {name: Fictional Universes, slug: fictional-universes, description: Top level group}
+  - {name: Galaxy Far Far Away, slug: galaxy-far-far-away, parent: "@tenancy/tenant-groups?slug=fictional-universes"}
+  - {name: Wizarding World, slug: wizarding-world, parent: "@tenancy/tenant-groups?slug=fictional-universes"}

@@ -1,0 +1,9 @@
+endpoint: virtualization/interfaces
+lookup: [virtual_machine, name]
+objects:
+  - {virtual_machine: &r2 "@virtualization/virtual-machines?name=r2-d2", name: eth0, enabled: true, mtu: 1500, description: Primary interface}
+  - {virtual_machine: *r2, name: eth0.100, parent: "@virtualization/interfaces?virtual_machine=r2-d2&name=eth0", description: Sub-interface}
+  - {virtual_machine: *r2, name: br0, enabled: false, description: Bridge}
+  - {virtual_machine: "@virtualization/virtual-machines?name=c-3po", name: eth0, enabled: true, tags: [pied-piper]}
+  - {virtual_machine: "@virtualization/virtual-machines?name=hal-9000", name: ens3, mtu: 9000}
+  - {virtual_machine: "@virtualization/virtual-machines?name=c-3po", name: br0, description: Bridge for eth0}

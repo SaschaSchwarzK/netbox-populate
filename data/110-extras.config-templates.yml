@@ -1,0 +1,20 @@
+endpoint: extras/config-templates
+objects:
+  - name: Bat-Computer Base Config
+    description: Jinja2 template rendered for devices
+    template_code: |
+      hostname {{ device.name }}
+      ! rendered for {{ device.site.name }}
+      {% for interface in device.interfaces.all() %}
+      interface {{ interface.name }}
+        description {{ interface.description or 'Uplink to the Batcave' }}
+      {% endfor %}
+    environment_params: {trim_blocks: true, lstrip_blocks: true}
+    mime_type: text/plain
+    file_name: batcave
+    file_extension: cfg
+    as_attachment: true
+    debug: false
+    tags: [pied-piper]
+  - name: Minimal Motd
+    template_code: "banner motd ^Welcome to the {{ device.site.name }}^"

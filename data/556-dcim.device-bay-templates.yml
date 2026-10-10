@@ -1,0 +1,5 @@
+endpoint: dcim/device-bay-templates
+lookup: [device_type, name]
+objects:
+  - {device_type: &t800 "@dcim/device-types?slug=cyberdyne-t-800-chassis", name: Blade Bay 1, label: Bay 1, enabled: true}
+  - {device_type: *t800, name: Blade Bay 2, label: Bay 2, enabled: false, description: Reserved for Skynet}

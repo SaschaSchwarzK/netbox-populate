@@ -1,0 +1,12 @@
+# Terminations can point to a site, location, region, site group or provider network.
+endpoint: circuits/circuit-terminations
+lookup: [circuit, term_side]
+objects:
+  - {circuit: "@circuits/circuits?cid=GT-OWL-0001", term_side: A, termination_type: dcim.site, termination_id: "@dcim/sites?slug=hogwarts-castle",
+     port_speed: 1000000, upstream_speed: 500000, xconnect_id: XC-1138, pp_info: "Panel 4, port 12", description: Castle side}
+  - {circuit: "@circuits/circuits?cid=GT-OWL-0001", term_side: Z, termination_type: circuits.providernetwork,
+     termination_id: "@circuits/provider-networks?name=Vault Network"}
+  - {circuit: "@circuits/circuits?cid=GT-FLOO-0001", term_side: A, termination_type: dcim.location, termination_id: "@dcim/locations?slug=great-hall",
+     port_speed: 10000, mark_connected: true}
+  - {circuit: "@circuits/circuits?cid=GT-FLOO-0002", term_side: A, termination_type: dcim.region, termination_id: "@dcim/regions?slug=the-shire"}
+  - {circuit: "@circuits/circuits?cid=GT-FLOO-0003", term_side: A, termination_type: dcim.sitegroup, termination_id: "@dcim/site-groups?slug=fortresses"}

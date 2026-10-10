@@ -1,0 +1,99 @@
+# Sites cover every status, time zones, coordinates, ASNs, tenants, regions, groups,
+# ownership, tags and (on some) custom fields of many types.
+endpoint: dcim/sites
+lookup: [slug]
+objects:
+  - name: Bag End Datacenter
+    slug: bag-end-datacenter
+    status: planned
+    region: "@dcim/regions?slug=the-shire"
+    group: "@dcim/site-groups?slug=fortresses"
+    facility: Hobbiton-1
+    time_zone: Pacific/Auckland
+    description: Second breakfast backup site
+    physical_address: "1 Bagshot Row, Hobbiton, The Shire"
+    shipping_address: "Back door, 1 Bagshot Row, Hobbiton"
+    latitude: -37.8722
+    longitude: 175.6814
+    asns: ["@ipam/asns?asn=4200001701"]
+    tags: [pied-piper]
+  - name: Minas Tirith Tower
+    slug: minas-tirith-tower
+    status: active
+    region: "@dcim/regions?slug=gondor"
+    group: "@dcim/site-groups?slug=fortresses"
+    tenant: "@tenancy/tenants?slug=wayne-enterprises"
+    facility: White-City-7
+    time_zone: Europe/Rome
+    physical_address: "Seventh Circle, Minas Tirith, Gondor"
+    latitude: 41.9028
+    longitude: 12.4964
+    owner: "@users/owners?name=Frodo Baggins"
+    custom_fields:
+      ship_registry: NCC-0001
+      house: ravenclaw
+      cloaked: false
+      commissioned_on: 3019-03-25
+  - name: Winterfell Keep
+    slug: winterfell-keep
+    status: staging
+    region: "@dcim/regions?slug=the-north"
+    group: "@dcim/site-groups?slug=fortresses"
+    time_zone: Europe/Oslo
+    description: Winter is coming
+    latitude: 59.9139
+    longitude: 10.7522
+  - name: Red Keep Colo
+    slug: red-keep-colo
+    status: decommissioning
+    region: "@dcim/regions?slug=crownlands"
+    tenant: "@tenancy/tenants?slug=weyland-yutani"
+    time_zone: Europe/London
+    comments: Fire hazard (wildfire).
+  - name: Mos Eisley Cantina Edge
+    slug: mos-eisley-cantina-edge
+    status: retired
+    region: "@dcim/regions?slug=outer-rim"
+    time_zone: Africa/Tunis
+    description: Wretched hive of scum and villainy
+  - name: Death Star II
+    slug: death-star-ii
+    status: active
+    region: "@dcim/regions?slug=outer-rim"
+    group: "@dcim/site-groups?slug=space-stations"
+    tenant: "@tenancy/tenants?slug=galactic-empire"
+    facility: Endor-Orbit
+    time_zone: UTC
+    physical_address: "Forest Moon of Endor, Orbital Position 3"
+    latitude: 0.0001
+    longitude: -0.0001
+    asns: ["@ipam/asns?asn=4200001138", "@ipam/asns?asn=65042"]
+    tags: [stark-industries]
+    owner: "@users/owners?name=Lucius Fox"
+    custom_fields:
+      ship_registry: NCC-1138
+      crew_log: "Stardate 47457.1: Fully armed and operational."
+      warp_factor: 10
+      power_draw_gigawatts: 1.21
+      cloaked: true
+      commissioned_on: 2026-05-04
+      last_jump_at: "2026-05-04T12:00:00Z"
+      tech_manual_url: https://wiki.example.com/death-star
+      deflector_config: {shield_frequency: 457.3, mode: enhanced}
+      house: slytherin
+      crew_ranks: [captain, admiral]
+      departure_airport: GTH
+      sponsoring_tenant: "@tenancy/tenants?slug=galactic-empire"
+  - name: Hogwarts Castle
+    slug: hogwarts-castle
+    status: active
+    group: "@dcim/site-groups?slug=fortresses"
+    tenant: "@tenancy/tenants?slug=hogwarts-school"
+    time_zone: Europe/London
+    latitude: 57.1
+    longitude: -5.0
+    physical_address: "Hogsmeade, Scottish Highlands"
+    custom_fields:
+      ship_registry: NCC-9334
+      house: gryffindor
+      home_site: "@dcim/sites?slug=minas-tirith-tower"

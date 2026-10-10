@@ -1,0 +1,44 @@
+# Choice sets for select / multiselect custom fields.
+# extra_choices is a list of [value, label] pairs; base_choices adds a built-in list.
+endpoint: extras/custom-field-choice-sets
+objects:
+  - name: Starfleet Ranks
+    description: Command structure aboard the USS Enterprise
+    extra_choices:
+      - [ensign, Ensign]
+      - [lieutenant, Lieutenant]
+      - [commander, Commander]
+      - [captain, Captain]
+      - [admiral, Admiral]
+    choice_colors:
+      ensign: gray
+      captain: yellow
+      admiral: red
+  - name: Hogwarts Houses
+    description: Sorting Hat results
+    order_alphabetically: true
+    extra_choices:
+      - [gryffindor, Gryffindor]
+      - [hufflepuff, Hufflepuff]
+      - [ravenclaw, Ravenclaw]
+      - [slytherin, Slytherin]
+    choice_colors:
+      gryffindor: red
+      hufflepuff: yellow
+      ravenclaw: blue
+      slytherin: green
+  - name: Departure Airports
+    description: IATA codes plus one fictional airport
+    base_choices: IATA
+    extra_choices:
+      - [GTH, Gotham City International]
+  - name: Trade Ports
+    description: UN/LOCODE list plus a smuggler's moon
+    base_choices: UN_LOCODE
+    extra_choices:
+      - [MOSEI, Mos Eisley Spaceport]
+  - name: Home Nations
+    description: ISO 3166 countries plus Wakanda
+    base_choices: ISO_3166
+    extra_choices:
+      - [WK, Wakanda]

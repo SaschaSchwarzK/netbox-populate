@@ -1,0 +1,5 @@
+endpoint: ipam/rirs
+lookup: [slug]
+objects:
+  - {name: Galactic Registry, slug: galactic-registry, is_private: false, description: Allocates numbers across all known systems}
+  - {name: Rohan Private Registry, slug: rohan-private, is_private: true, tags: [pied-piper]}

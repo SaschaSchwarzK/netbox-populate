@@ -1,0 +1,14 @@
+# Config context profiles validate the data of config contexts with a JSON schema.
+endpoint: extras/config-context-profiles
+objects:
+  - name: Death Star Operations
+    description: Schema for superlaser maintenance data
+    owner: "@users/owners?name=Lucius Fox"
+    schema:
+      type: object
+      required: [reactor_core]
+      properties:
+        reactor_core: {type: string}
+        exhaust_port_diameter_m: {type: number}
+        thermal_exhaust_port_protected: {type: boolean}
+    comments: "Remember: it is only **2 metres** wide."

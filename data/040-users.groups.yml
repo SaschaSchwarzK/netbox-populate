@@ -1,0 +1,5 @@
+endpoint: users/groups
+objects:
+  - {name: Rebel Alliance, description: Fighting the Empire}
+  - {name: Jedi Council, description: Guardians of peace and justice}
+  - {name: Night's Watch, description: Guarding the realm from the cold}

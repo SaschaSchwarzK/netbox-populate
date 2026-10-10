@@ -1,0 +1,22 @@
+# Inventory items can be nested (parent) and linked to a component (component_type + component_id).
+endpoint: dcim/inventory-items
+lookup: [device, name]
+objects:
+  - {device: &nx1 "@dcim/devices?name=nexus-core-01&site=death-star-ii", name: Flux Capacitor Module, status: active,
+     role: "@dcim/inventory-item-roles?slug=flux-capacitor", manufacturer: "@dcim/manufacturers?slug=acme-corporation",
+     part_id: FC-121, serial: FLUX-0001, asset_tag: FLUX-ASSET-1, discovered: false, description: Needs 1.21 GW}
+  - device: *nx1
+    name: Dilithium Chamber
+    status: active
+    parent: {$ref: dcim/inventory-items, device_id: "@dcim/devices?name=nexus-core-01&site=death-star-ii", name: Flux Capacitor Module}
+    role: "@dcim/inventory-item-roles?slug=dilithium-crystal"
+    part_id: DIL-7
+    discovered: true
+  - device: *nx1
+    name: Management Transceiver
+    status: staged
+    component_type: dcim.interface
+    component_id: "@dcim/interfaces?device=nexus-core-01&name=mgmt0"
+    manufacturer: "@dcim/manufacturers?slug=tyrell-corporation"
+    part_id: SFP-MGMT
+  - {device: "@dcim/devices?name=nexus-core-02&site=death-star-ii", name: Spare Fan, status: failed, role: "@dcim/inventory-item-roles?slug=chassis-fan"}

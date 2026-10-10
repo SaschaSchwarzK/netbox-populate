@@ -1,0 +1,13 @@
+# A cable between a device interface and a circuit termination.
+endpoint: dcim/cables
+lookup: [label]
+objects:
+  - label: CIRCUIT-1
+    type: smf-os2
+    status: connected
+    a_terminations: [{object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-02&name=xe-0/0/1"}]
+    b_terminations:
+      - object_type: circuits.circuittermination
+        object_id: {$ref: circuits/circuit-terminations, circuit_id: "@circuits/circuits?cid=GT-OWL-0001", term_side: A}
+    length: 15
+    length_unit: m

@@ -1,0 +1,13 @@
+endpoint: extras/table-configs
+lookup: [name, object_type]
+objects:
+  - name: Compact device table
+    object_type: dcim.device
+    table: DeviceTable
+    description: Name, status and site only
+    user: "@users/users?username=luke.skywalker"
+    weight: 100
+    enabled: true
+    shared: true
+    columns: [name, status, site]
+    ordering: [name]

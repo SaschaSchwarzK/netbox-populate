@@ -1,0 +1,10 @@
+endpoint: dcim/platforms
+lookup: [slug]
+objects:
+  - {name: Replicant OS, slug: replicant-os, manufacturer: "@dcim/manufacturers?slug=tyrell-corporation", description: Incept dates vary}
+  - {name: Replicant OS 6, slug: replicant-os-6, manufacturer: "@dcim/manufacturers?slug=tyrell-corporation",
+     parent: "@dcim/platforms?slug=replicant-os"}
+  - {name: Skynet Linux, slug: skynet-linux, manufacturer: "@dcim/manufacturers?slug=cyberdyne-systems",
+     config_template: "@extras/config-templates?name=Minimal Motd", tags: [pied-piper]}
+  - {name: Hooli XYZ, slug: hooli-xyz, manufacturer: "@dcim/manufacturers?slug=hooli"}
+  - {name: Enchanted Firmware, slug: enchanted-firmware, description: Platform without a manufacturer restriction}

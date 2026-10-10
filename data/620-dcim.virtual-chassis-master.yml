@@ -1,0 +1,4 @@
+endpoint: dcim/virtual-chassis
+mode: update
+objects:
+  - {name: Nexus Stack, master: "@dcim/devices?name=nexus-core-01&site=death-star-ii"}

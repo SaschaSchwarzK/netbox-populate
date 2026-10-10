@@ -1,0 +1,4 @@
+endpoint: ipam/vlan-translation-policies
+objects:
+  - {name: Mordor to Gondor, description: Maps local VIDs to the remote side, owner: "@users/owners?name=Lucius Fox"}
+  - {name: Shire Swap, comments: Swaps a pair of VIDs}

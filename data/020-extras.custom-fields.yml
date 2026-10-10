@@ -1,0 +1,66 @@
+# One custom field for every data type NetBox supports.
+endpoint: extras/custom-fields
+mode: upsert   # re-running updates the object types of existing fields
+lookup: [name]
+defaults:
+  object_types: [dcim.site, dcim.device, virtualization.virtualmachine]
+  group_name: Starfleet Registry
+objects:
+  - {name: ship_registry, label: Ship registry, type: text, unique: true, validation_regex: '^NCC-[0-9]{4}[A-Z]?$',
+     description: Registry number, search_weight: 1000, weight: 100, filter_logic: exact, ui_visible: always, ui_editable: "yes"}
+  - {name: crew_log, label: Captain's log, type: longtext, weight: 110, filter_logic: loose, ui_visible: if-set, ui_editable: "yes"}
+  - {name: warp_factor, label: Maximum warp, type: integer, validation_minimum: 1, validation_maximum: 10, default: 9, weight: 120, filter_logic: exact}
+  - {name: power_draw_gigawatts, label: Power draw (GW), type: decimal, validation_minimum: 0, validation_maximum: 1.21, weight: 130, filter_logic: loose}
+  - {name: cloaked, label: Cloaking device engaged, type: boolean, default: false, weight: 140, filter_logic: exact, ui_editable: "no"}
+  - {name: commissioned_on, label: Commissioned on, type: date, weight: 150, filter_logic: exact}
+  - {name: last_jump_at, label: Last jump to lightspeed, type: datetime, weight: 160, filter_logic: exact, ui_visible: hidden}
+  - {name: tech_manual_url, label: Technical manual, type: url, weight: 170, filter_logic: loose, ui_editable: hidden}
+  - name: deflector_config
+    label: Deflector configuration
+    type: json
+    weight: 180
+    filter_logic: disabled
+    default: {shield_frequency: 457.3, mode: standard}
+    validation_schema:
+      type: object
+      properties:
+        shield_frequency: {type: number}
+        mode: {type: string, enum: [standard, enhanced]}
+  - name: house
+    label: Hogwarts house
+    type: select
+    choice_set: "@extras/custom-field-choice-sets?name=Hogwarts Houses"
+    default: gryffindor
+    weight: 190
+    filter_logic: exact
+  - name: crew_ranks
+    label: Ranks aboard
+    type: multiselect
+    choice_set: "@extras/custom-field-choice-sets?name=Starfleet Ranks"
+    weight: 200
+    filter_logic: loose
+  - name: departure_airport
+    label: Departure airport
+    type: select
+    choice_set: "@extras/custom-field-choice-sets?name=Departure Airports"
+    weight: 210
+    filter_logic: exact
+  - name: home_site
+    label: Home port
+    type: object
+    related_object_type: dcim.site
+    related_object_filter: {status: active}
+    weight: 220
+    filter_logic: exact
+  - name: escort_devices
+    label: Escort ships
+    type: multiobject
+    related_object_type: dcim.device
+    weight: 230
+    filter_logic: loose
+  - name: sponsoring_tenant
+    label: Sponsoring tenant
+    type: object
+    related_object_type: tenancy.tenant
+    weight: 240
+    filter_logic: exact

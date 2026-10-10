@@ -1,0 +1,12 @@
+# Circuits and virtual circuits can be members of a group with a priority.
+endpoint: circuits/circuit-group-assignments
+lookup: [group, member_id]
+objects:
+  - {group: "@circuits/circuit-groups?slug=redundant-owl-links", member_type: circuits.circuit,
+     member_id: "@circuits/circuits?cid=GT-OWL-0001", priority: primary}
+  - {group: "@circuits/circuit-groups?slug=redundant-owl-links", member_type: circuits.circuit,
+     member_id: "@circuits/circuits?cid=GT-OWL-0002", priority: secondary}
+  - {group: "@circuits/circuit-groups?slug=floo-bundle", member_type: circuits.circuit,
+     member_id: "@circuits/circuits?cid=GT-FLOO-0001", priority: tertiary}
+  - {group: "@circuits/circuit-groups?slug=floo-bundle", member_type: circuits.circuit,
+     member_id: "@circuits/circuits?cid=GT-FLOO-0002", priority: inactive}

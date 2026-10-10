@@ -1,0 +1,10 @@
+endpoint: dcim/regions
+lookup: [slug]
+objects:
+  - {name: Middle-earth, slug: middle-earth, description: Third Age}
+  - {name: The Shire, slug: the-shire, parent: "@dcim/regions?slug=middle-earth"}
+  - {name: Gondor, slug: gondor, parent: "@dcim/regions?slug=middle-earth"}
+  - {name: Westeros, slug: westeros}
+  - {name: The North, slug: the-north, parent: "@dcim/regions?slug=westeros", owner: "@users/owners?name=Frodo Baggins"}
+  - {name: Crownlands, slug: crownlands, parent: "@dcim/regions?slug=westeros"}
+  - {name: Outer Rim, slug: outer-rim, description: Far from the bright centre of the universe}

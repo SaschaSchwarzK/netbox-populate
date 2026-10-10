@@ -1,0 +1,19 @@
+# L2VPN of every type.
+endpoint: vpn/l2vpns
+lookup: [slug]
+objects:
+  - {name: Epic VPLS, slug: epic-vpls, type: vpls, identifier: 5001, status: active, import_targets: ["@ipam/route-targets?name=65042:101"],
+     export_targets: ["@ipam/route-targets?name=65042:102"], tenant: "@tenancy/tenants?slug=galactic-empire", description: Multipoint}
+  - {name: Pseudowire One, slug: pseudowire-one, type: vpws, status: planned}
+  - {name: Overlay VXLAN, slug: overlay-vxlan, type: vxlan, identifier: 10010, status: active, tags: [pied-piper]}
+  - {name: Overlay VXLAN EVPN, slug: overlay-vxlan-evpn, type: vxlan-evpn, status: decommissioning}
+  - {name: MPLS EVPN, slug: mpls-evpn-svc, type: mpls-evpn, status: active, owner: "@users/owners?name=Lucius Fox"}
+  - {name: PBB EVPN, slug: pbb-evpn-svc, type: pbb-evpn, status: planned}
+  - {name: EVPN VPWS, slug: evpn-vpws-svc, type: evpn-vpws, status: active}
+  - {name: Ethernet Private Line, slug: epl-svc, type: epl, status: active}
+  - {name: Ethernet Virtual Private Line, slug: evpl-svc, type: evpl, status: active}
+  - {name: EP-LAN, slug: ep-lan-svc, type: ep-lan, status: active}
+  - {name: EVP-LAN, slug: evp-lan-svc, type: evp-lan, status: active}
+  - {name: EP-Tree, slug: ep-tree-svc, type: ep-tree, status: active}
+  - {name: EVP-Tree, slug: evp-tree-svc, type: evp-tree, status: active}
+  - {name: Shortest Path Bridging, slug: spb-svc, type: spb, status: active}

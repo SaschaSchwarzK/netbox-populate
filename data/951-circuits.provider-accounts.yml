@@ -1,0 +1,6 @@
+endpoint: circuits/provider-accounts
+lookup: [provider, account]
+objects:
+  - {provider: "@circuits/providers?slug=gringotts-telecom", name: Vault 713 Account, account: GT-0713, description: Main billing account}
+  - {provider: "@circuits/providers?slug=gringotts-telecom", account: GT-0999, comments: Unnamed account}
+  - {provider: "@circuits/providers?slug=pan-galactic-carrier", name: Hyperspace Account, account: PGC-42, tags: [pied-piper]}

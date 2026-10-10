@@ -1,0 +1,13 @@
+# Clusters can be scoped to a region, site group, site or location and have every status.
+endpoint: virtualization/clusters
+lookup: [name]
+objects:
+  - {name: Holodeck-Prime, type: "@virtualization/cluster-types?slug=holodeck-hypervisor", group: "@virtualization/cluster-groups?slug=starfleet-compute",
+     status: active, tenant: "@tenancy/tenants?slug=galactic-empire", scope_type: dcim.site, scope_id: "@dcim/sites?slug=death-star-ii"}
+  - {name: Holodeck-Staging, type: "@virtualization/cluster-types?slug=holodeck-hypervisor", status: staging,
+     scope_type: dcim.location, scope_id: "@dcim/locations?slug=reactor-core-room"}
+  - {name: Pensieve-North, type: "@virtualization/cluster-types?slug=pensieve-cluster", group: "@virtualization/cluster-groups?slug=hogwarts-compute",
+     status: planned, scope_type: dcim.region, scope_id: "@dcim/regions?slug=westeros"}
+  - {name: Pensieve-Fortress, type: "@virtualization/cluster-types?slug=pensieve-cluster", status: decommissioning,
+     scope_type: dcim.sitegroup, scope_id: "@dcim/site-groups?slug=fortresses", tags: [pied-piper]}
+  - {name: Pensieve-Offline, type: "@virtualization/cluster-types?slug=pensieve-cluster", status: offline}

@@ -1,0 +1,5 @@
+endpoint: ipam/roles
+lookup: [slug]
+objects:
+  - {name: Palantir Management, slug: palantir-management, weight: 100, description: Seeing-stone management network}
+  - {name: Hyperspace Transit, slug: hyperspace-transit, weight: 500}

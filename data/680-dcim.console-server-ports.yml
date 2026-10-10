@@ -1,0 +1,7 @@
+# upsert: ttyS1 exists (created from the device type template) and is updated; ttyS9 is new.
+endpoint: dcim/console-server-ports
+mode: upsert
+lookup: [device, name]
+objects:
+  - {device: &t800 "@dcim/devices?name=t800-chassis-01&site=death-star-ii", name: ttyS2, speed: 9600, description: Legacy serial}
+  - {device: *t800, name: ttyS9, type: rj-45, speed: 115200, mark_connected: true, label: Extra, tags: [pied-piper]}

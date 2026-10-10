@@ -1,0 +1,5 @@
+endpoint: tenancy/contact-roles
+lookup: [slug]
+objects:
+  - {name: Chief Engineer, slug: chief-engineer, description: Can fix anything given enough dilithium}
+  - {name: Quartermaster, slug: quartermaster}

@@ -1,0 +1,7 @@
+endpoint: dcim/power-port-templates
+lookup: [device_type, name]
+objects:
+  - {device_type: &nexus "@dcim/device-types?slug=nexus-6-core-switch", name: PSU1, type: iec-60320-c14, maximum_draw: 450, allocated_draw: 300}
+  - {device_type: *nexus, name: PSU2, type: iec-60320-c14, maximum_draw: 450, allocated_draw: 300}
+  - {device_type: "@dcim/device-types?slug=cyberdyne-t-800-chassis", name: PSU, type: iec-60320-c20, maximum_draw: 2000, label: Main supply}
+  - {device_type: "@dcim/device-types?slug=acme-rocket-pdu-12", name: Inlet, type: iec-60309-3p-n-e-6h, maximum_draw: 7360, allocated_draw: 5000}

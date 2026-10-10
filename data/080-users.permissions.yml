@@ -1,0 +1,22 @@
+# Object permissions: object_types, actions and JSON constraints.
+endpoint: users/permissions
+objects:
+  - name: Rebels can view active Imperial sites
+    description: Read-only access limited by a constraint
+    enabled: true
+    object_types: [dcim.site, dcim.device]
+    actions: [view]
+    constraints: {status: active}
+    groups: ["@users/groups?name=Rebel Alliance"]
+  - name: Jedi can change and render devices
+    enabled: true
+    object_types: [dcim.device]
+    actions: [view, change, render_config]
+    constraints: [{status: active}, {status: staging}]
+    groups: ["@users/groups?name=Jedi Council"]
+    users: ["@users/users?username=luke.skywalker"]
+  - name: Night's Watch may add and delete journal entries
+    enabled: false
+    object_types: [extras.journalentry]
+    actions: [view, add, delete]
+    groups: ["@users/groups?name=Night's Watch"]

@@ -1,0 +1,5 @@
+endpoint: vpn/ipsec-profiles
+objects:
+  - {name: Vault-Profile, mode: esp, ike_policy: "@vpn/ike-policies?name=Vault-IKEv2", ipsec_policy: "@vpn/ipsec-policies?name=Vault-IPsec",
+     description: ESP with modern ciphers, owner: "@users/owners?name=Frodo Baggins"}
+  - {name: Legacy-Profile, mode: ah, ike_policy: "@vpn/ike-policies?name=Legacy-IKEv1", ipsec_policy: "@vpn/ipsec-policies?name=Legacy-IPsec"}

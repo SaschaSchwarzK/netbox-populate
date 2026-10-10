@@ -1,0 +1,5 @@
+endpoint: ipam/route-targets
+objects:
+  - {name: "65042:101", description: Import from Gondor, tenant: "@tenancy/tenants?slug=galactic-empire"}
+  - {name: "65042:102", description: Export to Mordor, tags: [pied-piper]}
+  - {name: "65042:999", description: Unused target}

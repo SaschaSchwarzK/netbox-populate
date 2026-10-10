@@ -1,0 +1,11 @@
+endpoint: dcim/power-outlet-templates
+lookup: [device_type, name]
+objects:
+  - device_type: &pdu "@dcim/device-types?slug=acme-rocket-pdu-12"
+    name: Outlet1
+    type: iec-60320-c13
+    feed_leg: A
+    power_port: &inlet {$ref: dcim/power-port-templates, device_type_id: "@dcim/device-types?slug=acme-rocket-pdu-12", name: Inlet}
+  - {device_type: *pdu, name: Outlet2, type: iec-60320-c13, feed_leg: B, power_port: *inlet}
+  - {device_type: *pdu, name: Outlet3, type: iec-60320-c13, feed_leg: C, power_port: *inlet}
+  - {device_type: *pdu, name: Outlet4, type: iec-60320-c19, power_port: *inlet, label: High current, description: No feed leg}

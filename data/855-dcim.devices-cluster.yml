@@ -1,0 +1,6 @@
+# A physical host joins a cluster; VMs can then run on that device.
+endpoint: dcim/devices
+mode: update
+lookup: [name, site]
+objects:
+  - {name: t800-blade-01, site: "@dcim/sites?slug=death-star-ii", cluster: "@virtualization/clusters?name=Holodeck-Prime"}

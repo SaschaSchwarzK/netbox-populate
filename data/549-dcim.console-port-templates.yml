@@ -1,0 +1,4 @@
+endpoint: dcim/console-port-templates
+lookup: [device_type, name]
+objects:
+  - {device_type: "@dcim/device-types?slug=nexus-6-core-switch", name: console0, type: rj-45, label: Console}

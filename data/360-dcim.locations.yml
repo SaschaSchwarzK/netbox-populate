@@ -1,0 +1,13 @@
+endpoint: dcim/locations
+lookup: [slug]
+objects:
+  - {name: Superlaser Level, slug: superlaser-level, site: "@dcim/sites?slug=death-star-ii", status: active,
+     facility: Level 7, tenant: "@tenancy/tenants?slug=galactic-empire"}
+  - {name: Reactor Core Room, slug: reactor-core-room, site: "@dcim/sites?slug=death-star-ii", status: active,
+     parent: "@dcim/locations?slug=superlaser-level", description: Do not touch the exhaust port}
+  - {name: Detention Block AA-23, slug: detention-block-aa-23, site: "@dcim/sites?slug=death-star-ii", status: decommissioning}
+  - {name: Great Hall, slug: great-hall, site: "@dcim/sites?slug=hogwarts-castle", status: active, description: Enchanted ceiling}
+  - {name: Room of Requirement, slug: room-of-requirement, site: "@dcim/sites?slug=hogwarts-castle", status: staging,
+     parent: "@dcim/locations?slug=great-hall", owner: "@users/owners?name=Frodo Baggins"}
+  - {name: Chamber of Secrets, slug: chamber-of-secrets, site: "@dcim/sites?slug=hogwarts-castle", status: planned}
+  - {name: Archives, slug: minas-tirith-archives, site: "@dcim/sites?slug=minas-tirith-tower", status: retired}

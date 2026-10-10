@@ -1,0 +1,6 @@
+endpoint: ipam/asn-ranges
+lookup: [slug]
+objects:
+  - {name: Private Rebel Range, slug: private-rebel-range, rir: "@ipam/rirs?slug=rohan-private", start: 4200001000, end: 4200001999,
+     tenant: "@tenancy/tenants?slug=galactic-empire", description: Reserved for the Alliance}
+  - {name: Core Worlds Range, slug: core-worlds-range, rir: "@ipam/rirs?slug=galactic-registry", start: 65000, end: 65100}

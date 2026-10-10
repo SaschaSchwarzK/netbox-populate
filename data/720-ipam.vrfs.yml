@@ -1,0 +1,11 @@
+endpoint: ipam/vrfs
+objects:
+  - name: Mordor Underlay
+    rd: "65042:100"
+    tenant: "@tenancy/tenants?slug=galactic-empire"
+    enforce_unique: true
+    description: One VRF to rule them all
+    import_targets: ["@ipam/route-targets?name=65042:101"]
+    export_targets: ["@ipam/route-targets?name=65042:102"]
+    owner: "@users/owners?name=Frodo Baggins"
+  - {name: Shire Overlay, enforce_unique: false, description: Overlapping addresses allowed, tags: [pied-piper]}

@@ -1,0 +1,5 @@
+endpoint: dcim/rack-groups
+lookup: [slug]
+objects:
+  - {name: Holodeck Row A, slug: holodeck-row-a, description: Simulation hardware, owner: "@users/owners?name=Lucius Fox", tags: [pied-piper]}
+  - {name: Engineering Deck 7, slug: engineering-deck-7, comments: Keep away from the warp core}

@@ -1,0 +1,19 @@
+# Inventory item templates can be linked to a component template.
+# NOTE: do not nest them (parent:) - NetBox 4.6.10 instantiates children before their parents
+# when a device is created from the device type, which makes every device creation fail.
+# Nested inventory *items* are fine and are created in 670-dcim.inventory-items.yml.
+endpoint: dcim/inventory-item-templates
+lookup: [device_type, name]
+objects:
+  - {device_type: &nexus "@dcim/device-types?slug=nexus-6-core-switch", name: Backplane, role: "@dcim/inventory-item-roles?slug=dilithium-crystal",
+     manufacturer: "@dcim/manufacturers?slug=tyrell-corporation", part_id: TY-BP-01, label: Backplane}
+  - device_type: *nexus
+    name: Fan Module
+    role: "@dcim/inventory-item-roles?slug=chassis-fan"
+    manufacturer: "@dcim/manufacturers?slug=acme-corporation"
+    part_id: ACME-FAN-9
+  - device_type: *nexus
+    name: PSU1 Monitor
+    component_type: dcim.powerporttemplate
+    component_id: {$ref: dcim/power-port-templates, device_type_id: "@dcim/device-types?slug=nexus-6-core-switch", name: PSU1}
+    part_id: PSU-MON

@@ -1,0 +1,28 @@
+# Event rules react to object changes: they call a webhook or notify a notification group.
+endpoint: extras/event-rules
+objects:
+  - name: Tell the ravens about site changes
+    object_types: [dcim.site, dcim.device]
+    enabled: false   # fires a webhook to a fake host; enable only if you want that
+    event_types: [object_created, object_updated, object_deleted]
+    conditions: {and: [{attr: status.value, value: active}]}
+    action_type: webhook
+    action_object_type: extras.webhook
+    action_object_id: "@extras/webhooks?name=Slack of the Seven Kingdoms"
+    description: Fires a webhook for active objects
+    tags: [pied-piper]
+    owner: "@users/owners?name=Frodo Baggins"
+  - name: Alert Rebel Command on new prefixes
+    object_types: [ipam.prefix]
+    enabled: true
+    event_types: [object_created]
+    action_type: notification
+    action_object_type: extras.notificationgroup
+    action_object_id: {$ref: extras/notification-groups, $scan: true, name: Rebel Command}
+  - name: Disabled legacy hook
+    object_types: [ipam.vlan]
+    enabled: false
+    event_types: [object_updated]
+    action_type: webhook
+    action_object_type: extras.webhook
+    action_object_id: "@extras/webhooks?name=Legacy PUT hook"

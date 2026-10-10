@@ -1,0 +1,20 @@
+endpoint: extras/saved-filters
+lookup: [slug]
+objects:
+  - name: Active Imperial devices
+    slug: active-imperial-devices
+    object_types: [dcim.device]
+    description: Devices that are active
+    user: "@users/users?username=luke.skywalker"
+    weight: 100
+    enabled: true
+    shared: true
+    parameters: {status: [active]}
+  - name: Private staging sites
+    slug: private-staging-sites
+    object_types: [dcim.site]
+    user: "@users/users?username=leia.organa"
+    weight: 200
+    enabled: true
+    shared: false
+    parameters: {status: [staging, planned]}

@@ -1,0 +1,12 @@
+endpoint: users/owners
+objects:
+  - name: Frodo Baggins
+    group: "@users/owner-groups?name=Fellowship of the Ring"
+    description: Ring bearer
+    users: ["@users/users?username=luke.skywalker"]
+    user_groups: ["@users/groups?name=Jedi Council"]
+  - name: Lucius Fox
+    group: "@users/owner-groups?name=Wayne Industries"
+    description: Applied sciences
+    users: ["@users/users?username=leia.organa"]
+    user_groups: ["@users/groups?name=Rebel Alliance"]

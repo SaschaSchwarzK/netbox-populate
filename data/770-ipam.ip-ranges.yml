@@ -1,0 +1,7 @@
+endpoint: ipam/ip-ranges
+lookup: [start_address, vrf]
+objects:
+  - {start_address: 198.18.1.100/24, end_address: 198.18.1.150/24, status: active, role: "@ipam/roles?slug=palantir-management",
+     tenant: "@tenancy/tenants?slug=galactic-empire", description: DHCP pool for droids}
+  - {start_address: 198.18.1.200/24, end_address: 198.18.1.210/24, status: reserved, mark_populated: true, mark_utilized: true}
+  - {start_address: 100.64.10.10/24, end_address: 100.64.10.20/24, status: deprecated, vrf: "@ipam/vrfs?name=Shire Overlay", tags: [pied-piper]}

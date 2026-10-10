@@ -1,0 +1,17 @@
+endpoint: extras/export-templates
+objects:
+  - name: Site CSV (Starfleet style)
+    object_types: [dcim.site]
+    description: Name,status per site
+    template_code: |
+      name,status
+      {% for site in queryset %}{{ site.name }},{{ site.status }}
+      {% endfor %}
+    mime_type: text/csv
+    file_name: sites
+    file_extension: csv
+    as_attachment: true
+  - name: Device list (inline)
+    object_types: [dcim.device, virtualization.virtualmachine]
+    template_code: "{% for obj in queryset %}{{ obj.name }}\n{% endfor %}"
+    as_attachment: false

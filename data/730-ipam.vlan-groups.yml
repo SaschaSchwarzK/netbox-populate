@@ -1,0 +1,10 @@
+# A VLAN group can be scoped to a region, site group, site or location and limit VID ranges.
+endpoint: ipam/vlan-groups
+lookup: [slug]
+objects:
+  - {name: Death Star VLANs, slug: death-star-vlans, scope_type: dcim.site, scope_id: "@dcim/sites?slug=death-star-ii",
+     vid_ranges: [[100, 199], [300, 399]], tenant: "@tenancy/tenants?slug=galactic-empire", description: Site scoped}
+  - {name: Westeros VLANs, slug: westeros-vlans, scope_type: dcim.region, scope_id: "@dcim/regions?slug=westeros", vid_ranges: [[1000, 1999]]}
+  - {name: Fortress VLANs, slug: fortress-vlans, scope_type: dcim.sitegroup, scope_id: "@dcim/site-groups?slug=fortresses", vid_ranges: [[2000, 2099]]}
+  - {name: Great Hall VLANs, slug: great-hall-vlans, scope_type: dcim.location, scope_id: "@dcim/locations?slug=great-hall", vid_ranges: [[3000, 3009]]}
+  - {name: Unscoped VLANs, slug: unscoped-vlans, vid_ranges: [[4000, 4094]], tags: [pied-piper]}

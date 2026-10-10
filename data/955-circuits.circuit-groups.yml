@@ -1,0 +1,5 @@
+endpoint: circuits/circuit-groups
+lookup: [slug]
+objects:
+  - {name: Redundant Owl Links, slug: redundant-owl-links, description: Primary and secondary owl post, tenant: "@tenancy/tenants?slug=hogwarts-school"}
+  - {name: Floo Bundle, slug: floo-bundle, owner: "@users/owners?name=Frodo Baggins", tags: [pied-piper]}

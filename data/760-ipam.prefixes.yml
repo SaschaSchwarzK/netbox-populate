@@ -1,0 +1,13 @@
+# Prefixes cover every status, every scope type, VRFs, VLANs, roles, pools and utilisation flags.
+endpoint: ipam/prefixes
+lookup: [prefix, vrf]
+objects:
+  - {prefix: 198.18.0.0/16, status: container, description: Death Star supernet, tenant: "@tenancy/tenants?slug=galactic-empire"}
+  - {prefix: 198.18.1.0/24, status: active, scope_type: dcim.site, scope_id: "@dcim/sites?slug=death-star-ii", vlan: "@ipam/vlans?name=DS2-Management",
+     role: "@ipam/roles?slug=palantir-management", tenant: "@tenancy/tenants?slug=galactic-empire", is_pool: false, description: Management}
+  - {prefix: 198.18.2.0/24, status: reserved, scope_type: dcim.location, scope_id: "@dcim/locations?slug=superlaser-level", is_pool: true, mark_utilized: true}
+  - {prefix: 198.18.3.0/24, status: deprecated, scope_type: dcim.region, scope_id: "@dcim/regions?slug=outer-rim"}
+  - {prefix: 198.18.4.0/24, status: active, scope_type: dcim.sitegroup, scope_id: "@dcim/site-groups?slug=space-stations", vrf: "@ipam/vrfs?name=Mordor Underlay"}
+  - {prefix: 100.64.10.0/24, status: active, vrf: "@ipam/vrfs?name=Shire Overlay", scope_type: dcim.site, scope_id: "@dcim/sites?slug=bag-end-datacenter", tags: [pied-piper]}
+  - {prefix: 100.64.10.0/24, status: active, vrf: "@ipam/vrfs?name=Mordor Underlay", description: Same prefix in another VRF}
+  - {prefix: "fd00:dead:beef:1::/64", status: active, scope_type: dcim.site, scope_id: "@dcim/sites?slug=hogwarts-castle", vlan: "@ipam/vlans?name=GreatHall-Guests"}

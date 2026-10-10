@@ -1,0 +1,8 @@
+# Addresses on virtual machine interfaces.
+endpoint: ipam/ip-addresses
+lookup: [address, vrf]
+objects:
+  - {address: 198.18.1.40/24, status: active, assigned_object_type: virtualization.vminterface,
+     assigned_object_id: "@virtualization/interfaces?virtual_machine=r2-d2&name=eth0", dns_name: r2-d2.deathstar.example.com}
+  - {address: "fd00:dead:beef:1::40/64", status: active, assigned_object_type: virtualization.vminterface,
+     assigned_object_id: "@virtualization/interfaces?virtual_machine=r2-d2&name=eth0"}

@@ -1,0 +1,19 @@
+endpoint: extras/webhooks
+objects:
+  - name: Slack of the Seven Kingdoms
+    description: Posts changes to a fake raven service
+    payload_url: https://ravens.example.com/hooks/{{ event }}
+    http_method: POST
+    http_content_type: application/json
+    additional_headers: "X-Raven-Colour: black\nX-Realm: westeros"
+    body_template: '{"event": "{{ event }}", "model": "{{ model }}"}'
+    secret: valar-morghulis-fake
+    ssl_verification: true
+    tags: [pied-piper]
+    owner: "@users/owners?name=Frodo Baggins"
+  - name: Legacy PUT hook
+    payload_url: https://legacy.example.com/notify
+    http_method: PUT
+    http_content_type: application/x-www-form-urlencoded
+    ssl_verification: true
+    ca_file_path: /etc/ssl/certs/example-ca.pem

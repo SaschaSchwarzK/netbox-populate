@@ -1,0 +1,6 @@
+endpoint: dcim/inventory-item-roles
+lookup: [slug]
+objects:
+  - {name: Flux Capacitor, slug: flux-capacitor, color: ff9800, description: Requires 1.21 gigawatts}
+  - {name: Dilithium Crystal, slug: dilithium-crystal, color: 00bcd4, owner: "@users/owners?name=Frodo Baggins", tags: [pied-piper]}
+  - {name: Chassis Fan, slug: chassis-fan, color: 607d8b}

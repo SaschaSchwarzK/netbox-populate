@@ -1,0 +1,10 @@
+# Fake accounts. Change the passwords if this data is loaded on a shared instance.
+endpoint: users/users
+lookup: [username]
+objects:
+  - {username: luke.skywalker, password: "Tatooine-Sunrise-2026!", first_name: Luke, last_name: Skywalker,
+     email: luke@rebel-alliance.example, is_active: true, groups: ["@users/groups?name=Jedi Council", "@users/groups?name=Rebel Alliance"]}
+  - {username: leia.organa, password: "Alderaan-Forever-2026!", first_name: Leia, last_name: Organa,
+     email: leia@rebel-alliance.example, is_active: true, groups: ["@users/groups?name=Rebel Alliance"]}
+  - {username: jon.snow, password: "Winter-Is-Coming-2026!", first_name: Jon, last_name: Snow,
+     email: jon@nights-watch.example, is_active: false, groups: ["@users/groups?name=Night's Watch"]}

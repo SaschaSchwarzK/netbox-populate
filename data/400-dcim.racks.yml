@@ -1,0 +1,17 @@
+endpoint: dcim/racks
+lookup: [name, site]
+objects:
+  - {name: DS2-R01, site: "@dcim/sites?slug=death-star-ii", location: "@dcim/locations?slug=superlaser-level",
+     group: "@dcim/rack-groups?slug=engineering-deck-7", tenant: "@tenancy/tenants?slug=galactic-empire", status: active,
+     rack_type: "@dcim/rack-types?slug=acme-roadrunner-42u", facility_id: DS2-L7-R01, serial: DS2-0001, asset_tag: ASSET-DS2-R01,
+     airflow: front-to-rear, description: Main rack with a rack type, owner: "@users/owners?name=Lucius Fox"}
+  - {name: DS2-R02, site: "@dcim/sites?slug=death-star-ii", location: "@dcim/locations?slug=reactor-core-room", status: reserved,
+     form_factor: 4-post-frame, width: 21, u_height: 45, starting_unit: 1, desc_units: true,
+     outer_width: 24, outer_height: 80, outer_depth: 40, outer_unit: in, weight: 300, max_weight: 1500, weight_unit: lb,
+     mounting_depth: 30, airflow: rear-to-front, comments: Dimensions set by hand instead of a rack type}
+  - {name: HOG-R01, site: "@dcim/sites?slug=hogwarts-castle", location: "@dcim/locations?slug=great-hall", status: planned,
+     group: "@dcim/rack-groups?slug=holodeck-row-a", rack_type: "@dcim/rack-types?slug=hooli-open-frame-48u"}
+  - {name: MT-R01, site: "@dcim/sites?slug=minas-tirith-tower", status: deprecated,
+     rack_type: "@dcim/rack-types?slug=wonka-wall-cabinet-12u", tenant: "@tenancy/tenants?slug=wayne-enterprises"}
+  - {name: BE-R01, site: "@dcim/sites?slug=bag-end-datacenter", status: available,
+     rack_type: "@dcim/rack-types?slug=tyrell-wall-frame", tags: [pied-piper]}

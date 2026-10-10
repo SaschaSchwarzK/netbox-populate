@@ -1,0 +1,5 @@
+endpoint: tenancy/contact-groups
+lookup: [slug]
+objects:
+  - {name: Bridge Crew, slug: bridge-crew}
+  - {name: Engineering, slug: engineering-crew, parent: "@tenancy/contact-groups?slug=bridge-crew", description: Miracle workers}

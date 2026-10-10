@@ -1,0 +1,58 @@
+# Cables connect terminations (interfaces, ports, power, console). Terminations are
+# {object_type, object_id}; several terminations per side are allowed.
+endpoint: dcim/cables
+lookup: [label]
+objects:
+  - label: STACK-1
+    type: dac-passive
+    status: connected
+    a_terminations: [{object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-01&name=xe-0/0/0"}]
+    b_terminations: [{object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-02&name=xe-0/0/0"}]
+    length: 1
+    length_unit: m
+    color: "2196f3"
+    bundle: "@dcim/cable-bundles?name=Trunk Bundle Deck 7"
+    tenant: "@tenancy/tenants?slug=galactic-empire"
+    description: Stack link
+    tags: [pied-piper]
+  - label: AP-POE-1
+    type: cat6a
+    status: planned
+    a_terminations: [{object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-01&name=ge-0/0/0"}]
+    b_terminations: [{object_type: dcim.interface, object_id: "@dcim/interfaces?device=ap-great-hall&name=eth0"}]
+    length: 82
+    length_unit: ft
+  - label: FIBER-1
+    type: smf-os2
+    status: connected
+    a_terminations: [{object_type: dcim.frontport, object_id: "@dcim/front-ports?device=fiber-tray-hogwarts&name=LC-1"}]
+    b_terminations: [{object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-01&name=et-0/0/0"}]
+    color: ffeb3b
+    length: 3
+    length_unit: m
+    bundle: "@dcim/cable-bundles?name=Hogwarts Moving Staircase Bundle"
+  - label: POWER-1
+    type: power
+    status: connected
+    a_terminations: [{object_type: dcim.powerport, object_id: "@dcim/power-ports?device=nexus-core-01&name=PSU1"}]
+    b_terminations: [{object_type: dcim.poweroutlet, object_id: "@dcim/power-outlets?device=pdu-ds2-a&name=Outlet1"}]
+  - label: CONSOLE-1
+    type: cat5e
+    status: connected
+    a_terminations: [{object_type: dcim.consoleserverport, object_id: "@dcim/console-server-ports?device=t800-chassis-01&name=ttyS1"}]
+    b_terminations: [{object_type: dcim.consoleport, object_id: "@dcim/console-ports?device=nexus-core-01&name=console0"}]
+  - label: LAG-LINKS
+    type: mmf-om4
+    status: decommissioning
+    a_terminations:
+      - {object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-01&name=ge-0/0/1"}
+      - {object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-01&name=mgmt0"}
+    b_terminations:
+      - {object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-02&name=ge-0/0/1"}
+      - {object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-02&name=mgmt0"}
+    description: Two terminations per side
+  - label: PANEL-1
+    type: cat6
+    status: planned
+    a_terminations: [{object_type: dcim.frontport, object_id: "@dcim/front-ports?device=patch-panel-hogwarts&name=FP1"}]
+    b_terminations: [{object_type: dcim.interface, object_id: "@dcim/interfaces?device=nexus-core-01&name=ge-0/0/2"}]

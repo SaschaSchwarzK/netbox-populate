@@ -1,0 +1,7 @@
+endpoint: ipam/fhrp-group-assignments
+lookup: [group, interface_id]
+objects:
+  - {group: "@ipam/fhrp-groups?protocol=vrrp3&group_id=10", interface_type: dcim.interface,
+     interface_id: "@dcim/interfaces?device=nexus-core-01&name=lo0", priority: 200}
+  - {group: "@ipam/fhrp-groups?protocol=vrrp3&group_id=10", interface_type: dcim.interface,
+     interface_id: "@dcim/interfaces?device=nexus-core-02&name=mgmt0", priority: 100}

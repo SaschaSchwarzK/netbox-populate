@@ -1,0 +1,5 @@
+endpoint: circuits/virtual-circuit-types
+lookup: [slug]
+objects:
+  - {name: Hyperspace Lane, slug: hyperspace-lane, color: 3f51b5, description: Virtual circuit over the carrier cloud}
+  - {name: Subspace Channel, slug: subspace-channel, color: 009688}

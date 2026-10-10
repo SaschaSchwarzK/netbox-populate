@@ -1,0 +1,29 @@
+# Interface settings that depend on objects created later: LAG membership, VLAN modes, Q-in-Q,
+# VLAN translation, VRF, primary MAC, VDCs, wireless LANs and bridges.
+endpoint: dcim/interfaces
+mode: update
+lookup: [device, name]
+objects:
+  - device: &nx1 "@dcim/devices?name=nexus-core-01&site=death-star-ii"
+    name: xe-0/0/0
+    lag: "@dcim/interfaces?device=nexus-core-01&name=ae0"
+    mode: tagged
+    untagged_vlan: "@ipam/vlans?name=DS2-Management"
+    tagged_vlans: ["@ipam/vlans?name=DS2-Reserved", "@ipam/vlans?name=Westeros-Transit"]
+  - device: *nx1
+    name: xe-0/0/1
+    mode: q-in-q
+    qinq_svlan: "@ipam/vlans?name=Fortress-SVLAN"
+    vlan_translation_policy: "@ipam/vlan-translation-policies?name=Mordor to Gondor"
+    vrf: "@ipam/vrfs?name=Mordor Underlay"
+  - device: *nx1
+    name: mgmt0
+    mode: access
+    untagged_vlan: "@ipam/vlans?name=DS2-Management"
+    primary_mac_address: "@dcim/mac-addresses?mac_address=02:00:5E:10:00:01"
+    vdcs: ["@dcim/virtual-device-contexts?name=VDC-Empire"]
+  - {device: *nx1, name: ge-0/0/1, mode: tagged-all}
+  - {device: *nx1, name: xe-0/0/3, bridge: "@dcim/interfaces?device=nexus-core-01&name=br0"}
+  - device: "@dcim/devices?name=ap-great-hall&site=hogwarts-castle"
+    name: wlan2
+    wireless_lans: ["@wireless/wireless-lans?ssid=Marauders-Map", "@wireless/wireless-lans?ssid=Ministry-Enterprise"]

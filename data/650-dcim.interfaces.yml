@@ -1,0 +1,16 @@
+# Extra interfaces on top of the ones created from templates: sub-interfaces, LAG members,
+# Fibre Channel WWN, wireless RF settings, MTU/speed/duplex, mark_connected.
+endpoint: dcim/interfaces
+lookup: [device, name]
+objects:
+  - {device: &nx1 "@dcim/devices?name=nexus-core-01&site=death-star-ii", name: lo0, type: virtual, description: Loopback}
+  - {device: *nx1, name: ae1, type: lag, mtu: 9000, description: Uplink bundle}
+  - {device: *nx1, name: xe-0/0/2, type: 10gbase-x-sfpp, lag: "@dcim/interfaces?device=nexus-core-01&name=ae1",
+     speed: 10000000, duplex: full, mtu: 9000, description: LAG member}
+  - {device: *nx1, name: xe-0/0/1.100, type: virtual, parent: "@dcim/interfaces?device=nexus-core-01&name=xe-0/0/1", mtu: 1500,
+     description: Sub-interface for VLAN 100}
+  - {device: *nx1, name: xe-0/0/3, type: 10gbase-x-sfpp, mark_connected: true, description: Marked connected without a cable, label: Spare}
+  - {device: "@dcim/devices?name=t800-blade-01&site=death-star-ii", name: fc0, type: 32gfc-sfp28, wwn: "20:00:00:25:b5:aa:00:01"}
+  - {device: "@dcim/devices?name=t800-blade-01&site=death-star-ii", name: ib0, type: infiniband-hdr, speed: 200000000}
+  - {device: "@dcim/devices?name=ap-great-hall&site=hogwarts-castle", name: wlan2, type: ieee802.11ax, rf_role: ap,
+     rf_channel: 5g-36-5180-20, rf_channel_frequency: 5180, rf_channel_width: 20, tx_power: 20, description: Staff Wi-Fi}

@@ -1,0 +1,5 @@
+endpoint: dcim/rear-port-templates
+lookup: [device_type, name]
+objects:
+  - {device_type: "@dcim/device-types?slug=hooli-patch-panel-24", name: RP1, type: 8p8c, positions: 24, color: "2196f3"}
+  - {device_type: "@dcim/device-types?slug=wonka-fiber-tray", name: MPO-1, type: mpo, positions: 12, color: ff9800, label: Trunk}

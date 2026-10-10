@@ -1,0 +1,22 @@
+# Interface templates exercise many interface types, PoE settings, bridging and RF roles.
+endpoint: dcim/interface-templates
+lookup: [device_type, name]
+objects:
+  - {device_type: &nexus "@dcim/device-types?slug=nexus-6-core-switch", name: mgmt0, type: 1000base-t, mgmt_only: true, label: Management}
+  - {device_type: *nexus, name: br0, type: bridge, description: Software bridge}
+  - {device_type: *nexus, name: ae0, type: lag}
+  - {device_type: *nexus, name: vlan0, type: virtual}
+  - {device_type: *nexus, name: ge-0/0/0, type: 1000base-t, poe_mode: pse, poe_type: type2-ieee802.3at, label: PoE port}
+  - {device_type: *nexus, name: ge-0/0/1, type: 1000base-t, enabled: false}
+  - device_type: *nexus
+    name: ge-0/0/2
+    type: 2.5gbase-t
+    bridge: {$ref: dcim/interface-templates, device_type_id: "@dcim/device-types?slug=nexus-6-core-switch", name: br0}
+  - {device_type: *nexus, name: xe-0/0/0, type: 10gbase-x-sfpp}
+  - {device_type: *nexus, name: xe-0/0/1, type: 25gbase-x-sfp28}
+  - {device_type: *nexus, name: et-0/0/0, type: 100gbase-x-qsfp28}
+  - {device_type: &ap "@dcim/device-types?slug=wonka-everlasting-ap", name: wlan0, type: ieee802.11ax, rf_role: ap}
+  - {device_type: *ap, name: wlan1, type: ieee802.11be, rf_role: ap}
+  - {device_type: *ap, name: eth0, type: 1000base-t, poe_mode: pd, poe_type: type3-ieee802.3bt}
+  - {device_type: *ap, name: lte0, type: lte, mgmt_only: true}
+  - {device_type: &blade "@dcim/device-types?slug=cyberdyne-t-800-blade", name: eth0, type: 10gbase-t}

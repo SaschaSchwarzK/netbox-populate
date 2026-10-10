@@ -1,0 +1,18 @@
+endpoint: virtualization/interfaces
+mode: update
+lookup: [virtual_machine, name]
+objects:
+  - virtual_machine: "@virtualization/virtual-machines?name=r2-d2"
+    name: eth0
+    mode: tagged
+    untagged_vlan: "@ipam/vlans?name=DS2-Management"
+    tagged_vlans: ["@ipam/vlans?name=DS2-Reserved"]
+    vrf: "@ipam/vrfs?name=Mordor Underlay"
+    vlan_translation_policy: "@ipam/vlan-translation-policies?name=Shire Swap"
+    primary_mac_address: "@dcim/mac-addresses?mac_address=02:00:5E:20:00:01"
+  - {virtual_machine: "@virtualization/virtual-machines?name=r2-d2", name: br0, mode: tagged-all}
+  - virtual_machine: "@virtualization/virtual-machines?name=r2-d2"
+    name: eth0.100
+    mode: q-in-q
+    qinq_svlan: "@ipam/vlans?name=Fortress-SVLAN"
+  - {virtual_machine: "@virtualization/virtual-machines?name=c-3po", name: eth0, bridge: "@virtualization/interfaces?virtual_machine=c-3po&name=br0"}

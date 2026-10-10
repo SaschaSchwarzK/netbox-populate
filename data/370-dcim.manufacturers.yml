@@ -1,0 +1,8 @@
+endpoint: dcim/manufacturers
+lookup: [slug]
+objects:
+  - {name: Cyberdyne Systems, slug: cyberdyne-systems, description: Skynet-grade networking}
+  - {name: Acme Corporation, slug: acme-corporation, description: Everything for the Road Runner, owner: "@users/owners?name=Lucius Fox"}
+  - {name: Wonka Industries, slug: wonka-industries, tags: [pied-piper]}
+  - {name: Tyrell Corporation, slug: tyrell-corporation, description: More human than human}
+  - {name: Hooli, slug: hooli}

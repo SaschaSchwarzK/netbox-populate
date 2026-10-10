@@ -1,0 +1,14 @@
+# VLANs of every status and Q-in-Q role (service VLAN + customer VLANs).
+endpoint: ipam/vlans
+lookup: [name]
+objects:
+  - {vid: 100, name: DS2-Management, group: "@ipam/vlan-groups?slug=death-star-vlans", site: "@dcim/sites?slug=death-star-ii",
+     status: active, role: "@ipam/roles?slug=palantir-management", tenant: "@tenancy/tenants?slug=galactic-empire"}
+  - {vid: 110, name: DS2-Reserved, group: "@ipam/vlan-groups?slug=death-star-vlans", status: reserved}
+  - {vid: 120, name: DS2-Old, group: "@ipam/vlan-groups?slug=death-star-vlans", status: deprecated, description: Retired after the Battle of Yavin}
+  - {vid: 1100, name: Westeros-Transit, group: "@ipam/vlan-groups?slug=westeros-vlans", status: active, role: "@ipam/roles?slug=hyperspace-transit"}
+  - {vid: 2000, name: Fortress-SVLAN, group: "@ipam/vlan-groups?slug=fortress-vlans", status: active, qinq_role: svlan, comments: Service VLAN}
+  - {vid: 2001, name: Fortress-CVLAN-A, group: "@ipam/vlan-groups?slug=fortress-vlans", status: active, qinq_role: cvlan,
+     qinq_svlan: "@ipam/vlans?name=Fortress-SVLAN"}
+  - {vid: 3000, name: GreatHall-Guests, group: "@ipam/vlan-groups?slug=great-hall-vlans", site: "@dcim/sites?slug=hogwarts-castle", status: active, tags: [pied-piper]}
+  - {vid: 4000, name: Floating-VLAN, group: "@ipam/vlan-groups?slug=unscoped-vlans", status: active}

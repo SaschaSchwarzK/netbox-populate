@@ -1,0 +1,7 @@
+endpoint: dcim/console-server-port-templates
+lookup: [device_type, name]
+objects:
+  - {device_type: &t800 "@dcim/device-types?slug=cyberdyne-t-800-chassis", name: ttyS1, type: rj-45, label: Serial 1}
+  - {device_type: *t800, name: ttyS2, type: de-9}
+  - {device_type: *t800, name: ttyUSB0, type: usb-a}
+  - {device_type: *t800, name: usbc0, type: usb-c, description: Maintenance port}

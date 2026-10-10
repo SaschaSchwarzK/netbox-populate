@@ -1,0 +1,9 @@
+# Terminations attach a VLAN, interface or VM interface to an L2VPN.
+endpoint: vpn/l2vpn-terminations
+lookup: [l2vpn, assigned_object_id]
+objects:
+  - {l2vpn: "@vpn/l2vpns?slug=epic-vpls", assigned_object_type: ipam.vlan, assigned_object_id: "@ipam/vlans?name=DS2-Management"}
+  - {l2vpn: "@vpn/l2vpns?slug=epic-vpls", assigned_object_type: dcim.interface,
+     assigned_object_id: "@dcim/interfaces?device=nexus-core-02&name=ge-0/0/2", tags: [pied-piper]}
+  - {l2vpn: "@vpn/l2vpns?slug=overlay-vxlan", assigned_object_type: virtualization.vminterface,
+     assigned_object_id: "@virtualization/interfaces?virtual_machine=r2-d2&name=eth0"}

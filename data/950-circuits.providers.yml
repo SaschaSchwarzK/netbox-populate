@@ -1,0 +1,6 @@
+endpoint: circuits/providers
+lookup: [slug]
+objects:
+  - {name: Gringotts Telecom, slug: gringotts-telecom, description: Connectivity from the vaults, asns: ["@ipam/asns?asn=4200001701"],
+     owner: "@users/owners?name=Frodo Baggins"}
+  - {name: Pan-Galactic Carrier, slug: pan-galactic-carrier, tags: [pied-piper]}

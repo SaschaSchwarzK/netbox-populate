@@ -1,0 +1,17 @@
+# Remote or local sources for synchronised config templates / contexts (not synced here).
+endpoint: core/data-sources
+objects:
+  - name: Jedi Archives (git)
+    type: git
+    source_url: https://github.com/example/jedi-archives.git
+    enabled: false   # fake URL: keep disabled so no sync job is scheduled
+    sync_interval: 1440
+    description: Holocron repository with config templates
+    parameters: {username: obi-wan, password: not-a-real-secret}
+    ignore_rules: "*.tmp\n.git*"
+    comments: Fake data source; it is disabled because the URL does not exist.
+  - name: Local holocron
+    type: local
+    source_url: file:///opt/netbox/holocron
+    enabled: false
+    description: Local directory source

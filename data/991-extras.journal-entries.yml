@@ -1,0 +1,13 @@
+# Journal entries of every kind on different object types.
+endpoint: extras/journal-entries
+lookup: [assigned_object_type, assigned_object_id, kind]
+objects:
+  - {assigned_object_type: dcim.site, assigned_object_id: "@dcim/sites?slug=death-star-ii", kind: info,
+     comments: "Shield generator on Endor still online.\n\n**No rebels spotted.**"}
+  - {assigned_object_type: dcim.site, assigned_object_id: "@dcim/sites?slug=death-star-ii", kind: warning, comments: Thermal exhaust port unprotected.}
+  - {assigned_object_type: dcim.device, assigned_object_id: "@dcim/devices?name=nexus-core-01&site=death-star-ii", kind: success,
+     comments: Firmware upgraded to Replicant OS 6.1, tags: [pied-piper]}
+  - {assigned_object_type: dcim.device, assigned_object_id: "@dcim/devices?name=nexus-failed-01&site=minas-tirith-tower", kind: danger,
+     comments: Hit by lightning. RMA opened.}
+  - {assigned_object_type: ipam.prefix, assigned_object_id: "@ipam/prefixes?prefix=198.18.1.0/24", kind: info, comments: Management prefix documented.}
+  - {assigned_object_type: vpn.tunnel, assigned_object_id: "@vpn/tunnels?name=Vault-IPsec-Tunnel", kind: warning, comments: Rekey overdue.}

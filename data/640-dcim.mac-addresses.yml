@@ -1,0 +1,17 @@
+# MAC addresses are separate objects that can be assigned to interfaces (generic relation).
+endpoint: dcim/mac-addresses
+lookup: [mac_address]
+objects:
+  - mac_address: "02:00:5E:10:00:01"
+    assigned_object_type: dcim.interface
+    assigned_object_id: "@dcim/interfaces?device=nexus-core-01&name=mgmt0"
+    description: Management MAC
+    tags: [pied-piper]
+    owner: "@users/owners?name=Frodo Baggins"
+  - mac_address: "02:00:5E:10:00:02"
+    assigned_object_type: dcim.interface
+    assigned_object_id: "@dcim/interfaces?device=nexus-core-01&name=mgmt0"
+    description: Second MAC on the same interface
+  - mac_address: "02:00:5E:10:00:10"
+    description: Unassigned spare MAC
+    comments: Not attached to anything yet

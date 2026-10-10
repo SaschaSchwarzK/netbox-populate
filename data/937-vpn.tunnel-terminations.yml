@@ -1,0 +1,10 @@
+# Tunnel terminations attach a tunnel to an interface (device or VM) and can reference an outside IP.
+endpoint: vpn/tunnel-terminations
+lookup: [tunnel, termination_id]
+objects:
+  - {tunnel: "@vpn/tunnels?name=Vault-IPsec-Tunnel", role: hub, termination_type: dcim.interface,
+     termination_id: "@dcim/interfaces?device=nexus-core-01&name=lo0", outside_ip: "@ipam/ip-addresses?address=198.18.1.5/32"}
+  - {tunnel: "@vpn/tunnels?name=Vault-IPsec-Tunnel", role: spoke, termination_type: dcim.interface,
+     termination_id: "@dcim/interfaces?device=nexus-core-02&name=mgmt0", outside_ip: "@ipam/ip-addresses?address=198.18.1.20/24"}
+  - {tunnel: "@vpn/tunnels?name=Shire-Wireguard", role: peer, termination_type: virtualization.vminterface,
+     termination_id: "@virtualization/interfaces?virtual_machine=r2-d2&name=br0", tags: [pied-piper]}

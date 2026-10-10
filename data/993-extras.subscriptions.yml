@@ -1,0 +1,8 @@
+# NetBox only lists subscriptions/notifications of the authenticated user, so they are created for "admin".
+# (Use the user your API token belongs to; adjust the username if it is not "admin".)
+endpoint: extras/subscriptions
+lookup_mode: scan   # this endpoint has no filters
+lookup: [user, object_type, object_id]
+objects:
+  - {user: "@users/users?username=admin", object_type: dcim.device, object_id: "@dcim/devices?name=nexus-core-01&site=death-star-ii"}
+  - {user: "@users/users?username=admin", object_type: ipam.prefix, object_id: "@ipam/prefixes?prefix=198.18.1.0/24"}

@@ -1,0 +1,10 @@
+# NetBox only lists subscriptions/notifications of the authenticated user, so they are created for "admin".
+# (Use the user your API token belongs to; adjust the username if it is not "admin".)
+endpoint: extras/notifications
+lookup_mode: scan   # this endpoint has no filters
+lookup: [user, object_type, object_id, event_type]
+objects:
+  - {user: "@users/users?username=admin", object_type: dcim.device, object_id: "@dcim/devices?name=nexus-core-01&site=death-star-ii", event_type: object_updated}
+  - {user: "@users/users?username=admin", object_type: dcim.site, object_id: "@dcim/sites?slug=death-star-ii", event_type: object_created,
+     read: "2026-10-01T10:00:00Z"}
+  - {user: "@users/users?username=admin", object_type: dcim.device, object_id: "@dcim/devices?name=nexus-failed-01&site=minas-tirith-tower", event_type: object_deleted}

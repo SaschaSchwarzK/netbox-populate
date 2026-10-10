@@ -1,0 +1,32 @@
+# Virtual machines in every status and start-on-boot mode, with and without a host device.
+endpoint: virtualization/virtual-machines
+lookup: [name]
+objects:
+  - name: r2-d2
+    virtual_machine_type: "@virtualization/virtual-machine-types?slug=small-droid"
+    role: "@dcim/device-roles?slug=holodeck-servers"
+    status: active
+    start_on_boot: "on"   # quoted: bare on/off are booleans in YAML
+    site: "@dcim/sites?slug=death-star-ii"
+    cluster: "@virtualization/clusters?name=Holodeck-Prime"
+    device: "@dcim/devices?name=t800-blade-01&site=death-star-ii"
+    platform: "@dcim/platforms?slug=skynet-linux"
+    vcpus: 0.5
+    memory: 512
+    disk: 8
+    serial: R2-0001
+    tenant: "@tenancy/tenants?slug=galactic-empire"
+    description: Beeps and whistles
+    local_context_data: {mission: Deliver the plans}
+    tags: [dunder-mifflin]
+    owner: "@users/owners?name=Lucius Fox"
+    custom_fields: {ship_registry: NCC-2187, house: gryffindor}
+  - {name: c-3po, virtual_machine_type: "@virtualization/virtual-machine-types?slug=small-droid", status: paused, start_on_boot: "off",
+     cluster: "@virtualization/clusters?name=Holodeck-Prime", vcpus: 2, memory: 2048, disk: 40,
+     config_template: "@extras/config-templates?name=Minimal Motd", description: Fluent in over six million forms of communication}
+  - {name: hal-9000, virtual_machine_type: "@virtualization/virtual-machine-types?slug=large-mainframe", status: offline, start_on_boot: laststate,
+     cluster: "@virtualization/clusters?name=Holodeck-Staging", vcpus: 16, memory: 65536, disk: 1024, comments: I am sorry Dave}
+  - {name: skynet, status: failed, site: "@dcim/sites?slug=red-keep-colo", vcpus: 64, memory: 262144, disk: 4096, description: Self-aware}
+  - {name: jarvis, status: planned, site: "@dcim/sites?slug=minas-tirith-tower", tenant: "@tenancy/tenants?slug=wayne-enterprises"}
+  - {name: glados, status: staged, cluster: "@virtualization/clusters?name=Pensieve-North", vcpus: 4, memory: 8192}
+  - {name: wopr, status: decommissioning, cluster: "@virtualization/clusters?name=Pensieve-Fortress", description: "Shall we play a game?"}

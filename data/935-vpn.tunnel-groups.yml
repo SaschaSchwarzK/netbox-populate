@@ -1,0 +1,5 @@
+endpoint: vpn/tunnel-groups
+lookup: [slug]
+objects:
+  - {name: Underground Tunnels, slug: underground-tunnels, description: Beneath Gringotts}
+  - {name: Hyperspace Lanes, slug: hyperspace-lanes, tags: [pied-piper]}

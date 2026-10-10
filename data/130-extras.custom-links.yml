@@ -1,0 +1,19 @@
+endpoint: extras/custom-links
+objects:
+  - name: Open in Holodeck
+    object_types: [dcim.device]
+    link_text: "Holodeck: {{ object.name }}"
+    link_url: "https://holodeck.example.com/devices/{{ object.pk }}"
+    enabled: true
+    weight: 100
+    group_name: Simulations
+    button_class: purple
+    new_window: true
+  - name: Wiki page
+    object_types: [dcim.site, dcim.rack]
+    link_text: "Wiki"
+    link_url: "https://wiki.example.com/{{ object.name|slugify }}"
+    enabled: false
+    weight: 200
+    button_class: ghost-dark
+    new_window: false

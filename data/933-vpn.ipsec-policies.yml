@@ -1,0 +1,4 @@
+endpoint: vpn/ipsec-policies
+objects:
+  - {name: Vault-IPsec, proposals: ["@vpn/ipsec-proposals?name=Vault-ESP"], pfs_group: 20, description: Perfect forward secrecy}
+  - {name: Legacy-IPsec, proposals: ["@vpn/ipsec-proposals?name=Legacy-ESP", "@vpn/ipsec-proposals?name=Vault-ESP"], pfs_group: 5}

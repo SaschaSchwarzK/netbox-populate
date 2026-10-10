@@ -1,0 +1,5 @@
+endpoint: wireless/wireless-lan-groups
+lookup: [slug]
+objects:
+  - {name: Hogwarts Wi-Fi, slug: hogwarts-wifi, description: All wireless networks of the castle}
+  - {name: Staff Networks, slug: staff-networks, parent: "@wireless/wireless-lan-groups?slug=hogwarts-wifi"}

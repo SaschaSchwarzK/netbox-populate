@@ -1,0 +1,5 @@
+endpoint: virtualization/cluster-types
+lookup: [slug]
+objects:
+  - {name: Holodeck Hypervisor, slug: holodeck-hypervisor, description: Runs simulations of everything}
+  - {name: Pensieve Cluster, slug: pensieve-cluster, owner: "@users/owners?name=Frodo Baggins"}

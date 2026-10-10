@@ -1,0 +1,6 @@
+endpoint: ipam/aggregates
+lookup: [prefix]
+objects:
+  - {prefix: 198.18.0.0/15, rir: "@ipam/rirs?slug=galactic-registry", date_added: 2026-01-01, description: Benchmarking space, tenant: "@tenancy/tenants?slug=galactic-empire"}
+  - {prefix: 100.64.0.0/10, rir: "@ipam/rirs?slug=rohan-private", date_added: 2026-02-14, tags: [pied-piper]}
+  - {prefix: "fd00:dead:beef::/48", rir: "@ipam/rirs?slug=rohan-private", description: Unique local IPv6}

@@ -1,0 +1,6 @@
+endpoint: ipam/vlan-translation-rules
+lookup: [policy, local_vid]
+objects:
+  - {policy: "@ipam/vlan-translation-policies?name=Mordor to Gondor", local_vid: 100, remote_vid: 1100, description: Management}
+  - {policy: "@ipam/vlan-translation-policies?name=Mordor to Gondor", local_vid: 110, remote_vid: 1110}
+  - {policy: "@ipam/vlan-translation-policies?name=Shire Swap", local_vid: 3000, remote_vid: 3001}

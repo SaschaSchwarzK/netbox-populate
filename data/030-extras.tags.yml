@@ -1,0 +1,8 @@
+endpoint: extras/tags
+lookup: [slug]
+objects:
+  - {name: Stark Industries, slug: stark-industries, color: f44336, description: Property of Tony Stark, weight: 100,
+     object_types: [dcim.site, dcim.device, ipam.prefix]}
+  - {name: Dunder Mifflin, slug: dunder-mifflin, color: 2196f3, description: Paper company equipment, weight: 200,
+     object_types: [dcim.device, virtualization.virtualmachine]}
+  - {name: Pied Piper, slug: pied-piper, color: 4caf50, description: Middle-out compression, weight: 300}

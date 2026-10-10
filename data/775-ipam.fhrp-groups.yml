@@ -1,0 +1,7 @@
+endpoint: ipam/fhrp-groups
+lookup: [protocol, group_id]
+objects:
+  - {name: Gateway Alpha, protocol: vrrp3, group_id: 10, auth_type: md5, auth_key: not-a-real-key, description: Default gateway}
+  - {name: Gateway Beta, protocol: hsrp, group_id: 20, auth_type: plaintext, auth_key: fakepass}
+  - {protocol: glbp, group_id: 30, tags: [pied-piper]}
+  - {protocol: carp, group_id: 40, owner: "@users/owners?name=Frodo Baggins"}

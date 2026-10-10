@@ -1,0 +1,23 @@
+# Front ports map to rear ports (many-to-one via the rear_ports mapping list).
+endpoint: dcim/front-port-templates
+lookup: [device_type, name]
+objects:
+  - device_type: &panel "@dcim/device-types?slug=hooli-patch-panel-24"
+    name: FP1
+    type: 8p8c
+    positions: 1
+    color: "2196f3"
+    rear_ports:
+      - {position: 1, rear_port: {$ref: dcim/rear-port-templates, device_type_id: "@dcim/device-types?slug=hooli-patch-panel-24", name: RP1}, rear_port_position: 1}
+  - device_type: &fiber "@dcim/device-types?slug=wonka-fiber-tray"
+    name: LC-1
+    type: lc
+    positions: 1
+    rear_ports:
+      - {position: 1, rear_port: {$ref: dcim/rear-port-templates, device_type_id: "@dcim/device-types?slug=wonka-fiber-tray", name: MPO-1}, rear_port_position: 1}
+  - device_type: *fiber
+    name: LC-2
+    type: lc-apc
+    positions: 1
+    rear_ports:
+      - {position: 1, rear_port: {$ref: dcim/rear-port-templates, device_type_id: "@dcim/device-types?slug=wonka-fiber-tray", name: MPO-1}, rear_port_position: 2}

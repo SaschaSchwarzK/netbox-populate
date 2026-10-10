@@ -1,0 +1,8 @@
+endpoint: circuits/virtual-circuits
+lookup: [cid]
+objects:
+  - {cid: VC-HYPER-001, provider_network: "@circuits/provider-networks?name=Hyperspace Backbone", provider_account: "@circuits/provider-accounts?account=PGC-42",
+     type: "@circuits/virtual-circuit-types?slug=hyperspace-lane", status: active, tenant: "@tenancy/tenants?slug=galactic-empire",
+     description: Rebel supply route, tags: [pied-piper]}
+  - {cid: VC-SUB-002, provider_network: "@circuits/provider-networks?name=Hyperspace Backbone", type: "@circuits/virtual-circuit-types?slug=subspace-channel",
+     status: provisioning, owner: "@users/owners?name=Lucius Fox"}

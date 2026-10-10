@@ -1,0 +1,5 @@
+endpoint: vpn/ike-policies
+objects:
+  - {name: Vault-IKEv2, version: 2, proposals: ["@vpn/ike-proposals?name=Gringotts-IKE-Strong", "@vpn/ike-proposals?name=Mid-IKE"],
+     preshared_key: not-a-real-psk, description: Modern policy}
+  - {name: Legacy-IKEv1, version: 1, mode: aggressive, proposals: ["@vpn/ike-proposals?name=Legacy-IKE"], comments: Only for the old fortress}

@@ -1,0 +1,7 @@
+# Virtual circuits can only terminate on interfaces of type 'virtual'.
+endpoint: circuits/virtual-circuit-terminations
+lookup: [virtual_circuit, interface]
+objects:
+  - {virtual_circuit: "@circuits/virtual-circuits?cid=VC-HYPER-001", role: hub, interface: "@dcim/interfaces?device=nexus-core-01&name=vlan0", description: Hub end}
+  - {virtual_circuit: "@circuits/virtual-circuits?cid=VC-HYPER-001", role: spoke, interface: "@dcim/interfaces?device=nexus-core-02&name=vlan0"}
+  - {virtual_circuit: "@circuits/virtual-circuits?cid=VC-SUB-002", role: peer, interface: "@dcim/interfaces?device=nexus-core-01&name=lo0", tags: [pied-piper]}

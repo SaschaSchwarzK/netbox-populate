@@ -1,0 +1,5 @@
+endpoint: virtualization/cluster-groups
+lookup: [slug]
+objects:
+  - {name: Starfleet Compute, slug: starfleet-compute}
+  - {name: Hogwarts Compute, slug: hogwarts-compute, tags: [pied-piper]}

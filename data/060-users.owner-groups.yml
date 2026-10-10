@@ -1,0 +1,4 @@
+endpoint: users/owner-groups
+objects:
+  - {name: Fellowship of the Ring, description: Nine walkers}
+  - {name: Wayne Industries, description: Gotham's largest employer}

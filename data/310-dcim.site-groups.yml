@@ -1,0 +1,6 @@
+endpoint: dcim/site-groups
+lookup: [slug]
+objects:
+  - {name: Fictional Facilities, slug: fictional-facilities}
+  - {name: Fortresses, slug: fortresses, parent: "@dcim/site-groups?slug=fictional-facilities"}
+  - {name: Space Stations, slug: space-stations, parent: "@dcim/site-groups?slug=fictional-facilities"}

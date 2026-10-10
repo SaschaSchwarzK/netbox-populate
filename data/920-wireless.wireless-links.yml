@@ -1,0 +1,8 @@
+endpoint: wireless/wireless-links
+lookup: [ssid]
+objects:
+  - {ssid: Owl-Post-Bridge, interface_a: "@dcim/interfaces?device=ap-great-hall&name=wlan0", interface_b: "@dcim/interfaces?device=ap-owlery&name=wlan0",
+     status: connected, tenant: "@tenancy/tenants?slug=hogwarts-school", auth_type: wpa-personal, auth_cipher: aes, auth_psk: fake-psk-123,
+     distance: 120.5, distance_unit: m, description: Point to point link, tags: [pied-piper]}
+  - {ssid: Tower-Link, interface_a: "@dcim/interfaces?device=ap-great-hall&name=wlan1", interface_b: "@dcim/interfaces?device=ap-owlery&name=wlan1",
+     status: planned, distance: 0.3, distance_unit: km}

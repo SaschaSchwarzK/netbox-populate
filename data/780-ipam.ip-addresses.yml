@@ -1,0 +1,41 @@
+# IP addresses cover every status and role, interface / FHRP-group assignment, NAT, DNS names and VRFs.
+endpoint: ipam/ip-addresses
+lookup: [address, vrf]
+objects:
+  - address: 198.18.1.10/24
+    status: active
+    assigned_object_type: dcim.interface
+    assigned_object_id: "@dcim/interfaces?device=nexus-core-01&name=mgmt0"
+    dns_name: nexus-core-01.deathstar.example.com
+    tenant: "@tenancy/tenants?slug=galactic-empire"
+    description: Management address
+    tags: [pied-piper]
+  - {address: 198.18.1.20/24, status: active, assigned_object_type: dcim.interface,
+     assigned_object_id: "@dcim/interfaces?device=nexus-core-02&name=mgmt0", description: Out-of-band address}
+  - {address: 198.18.1.5/32, status: active, role: loopback, assigned_object_type: dcim.interface,
+     assigned_object_id: "@dcim/interfaces?device=nexus-core-01&name=lo0", dns_name: lo0.nexus-core-01.deathstar.example.com}
+  - {address: 198.18.1.1/24, status: active, role: vrrp, assigned_object_type: ipam.fhrpgroup,
+     assigned_object_id: "@ipam/fhrp-groups?protocol=vrrp3&group_id=10", description: Virtual gateway}
+  - {address: 198.18.1.2/24, status: active, role: hsrp, assigned_object_type: ipam.fhrpgroup,
+     assigned_object_id: "@ipam/fhrp-groups?protocol=hsrp&group_id=20"}
+  - {address: 198.18.1.3/24, status: reserved, role: glbp, assigned_object_type: ipam.fhrpgroup,
+     assigned_object_id: "@ipam/fhrp-groups?protocol=glbp&group_id=30"}
+  - {address: 198.18.1.4/24, status: deprecated, role: carp, assigned_object_type: ipam.fhrpgroup,
+     assigned_object_id: "@ipam/fhrp-groups?protocol=carp&group_id=40"}
+  - {address: 198.18.1.6/24, status: active, role: secondary, description: Secondary address}
+  - {address: 198.18.1.7/24, status: active, role: anycast, dns_name: anycast.deathstar.example.com}
+  - {address: 198.18.1.8/24, status: active, role: vip, description: Virtual IP}
+  - {address: 198.18.1.30/24, status: dhcp, description: Leased from the DHCP pool}
+  - {address: "fd00:dead:beef:1::31/64", status: slaac, description: Autoconfigured}
+  - {address: 198.18.1.50/24, status: active, description: Inside address, comments: NAT inside}
+  - address: 198.18.4.50/24
+    status: active
+    vrf: "@ipam/vrfs?name=Mordor Underlay"
+    nat_inside: "@ipam/ip-addresses?address=198.18.1.50/24"
+    description: Outside address translated to the inside address
+  - address: "fd00:dead:beef:1::10/64"
+    status: active
+    assigned_object_type: dcim.interface
+    assigned_object_id: "@dcim/interfaces?device=ap-great-hall&name=wlan2"
+    dns_name: ap.hogwarts.example.com
+  - {address: 100.64.10.5/24, status: active, vrf: "@ipam/vrfs?name=Shire Overlay", tenant: "@tenancy/tenants?slug=wayne-enterprises"}

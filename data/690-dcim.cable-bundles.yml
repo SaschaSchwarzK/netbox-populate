@@ -1,0 +1,4 @@
+endpoint: dcim/cable-bundles
+objects:
+  - {name: Trunk Bundle Deck 7, description: Cables sharing a conduit, owner: "@users/owners?name=Lucius Fox", tags: [pied-piper]}
+  - {name: Hogwarts Moving Staircase Bundle, comments: Bundle rearranges itself}

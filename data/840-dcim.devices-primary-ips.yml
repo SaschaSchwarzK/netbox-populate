@@ -1,0 +1,8 @@
+# Primary and out-of-band addresses can only be set after the IPs are assigned to the device.
+endpoint: dcim/devices
+mode: update
+lookup: [name, site]
+objects:
+  - {name: nexus-core-01, site: "@dcim/sites?slug=death-star-ii", primary_ip4: "@ipam/ip-addresses?address=198.18.1.10/24"}
+  - {name: nexus-core-02, site: "@dcim/sites?slug=death-star-ii", oob_ip: "@ipam/ip-addresses?address=198.18.1.20/24"}
+  - {name: ap-great-hall, site: "@dcim/sites?slug=hogwarts-castle", primary_ip6: "@ipam/ip-addresses?address=fd00:dead:beef:1::10/64"}

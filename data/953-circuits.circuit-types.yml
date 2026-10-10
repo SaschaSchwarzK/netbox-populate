@@ -1,0 +1,5 @@
+endpoint: circuits/circuit-types
+lookup: [slug]
+objects:
+  - {name: Owl Post, slug: owl-post, color: 795548, description: Slow but reliable}
+  - {name: Floo Network, slug: floo-network, color: ff5722}

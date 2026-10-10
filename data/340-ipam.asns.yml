@@ -1,0 +1,6 @@
+endpoint: ipam/asns
+lookup: [asn]
+objects:
+  - {asn: 4200001138, rir: "@ipam/rirs?slug=rohan-private", tenant: "@tenancy/tenants?slug=galactic-empire", description: THX}
+  - {asn: 4200001701, rir: "@ipam/rirs?slug=rohan-private", description: NCC, tags: [pied-piper]}
+  - {asn: 65042, rir: "@ipam/rirs?slug=galactic-registry", description: Answer to everything}

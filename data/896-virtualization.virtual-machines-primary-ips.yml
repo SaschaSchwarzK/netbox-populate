@@ -1,0 +1,5 @@
+endpoint: virtualization/virtual-machines
+mode: update
+lookup: [name]
+objects:
+  - {name: r2-d2, primary_ip4: "@ipam/ip-addresses?address=198.18.1.40/24", primary_ip6: "@ipam/ip-addresses?address=fd00:dead:beef:1::40/64"}

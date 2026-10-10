@@ -1,0 +1,9 @@
+# Device roles can be nested, can render config templates and can apply to VMs.
+endpoint: dcim/device-roles
+lookup: [slug]
+objects:
+  - {name: Starship Systems, slug: starship-systems, color: 9c27b0, description: Top level role}
+  - {name: Warp Core Controllers, slug: warp-core-controllers, color: f44336, parent: "@dcim/device-roles?slug=starship-systems"}
+  - {name: Holodeck Servers, slug: holodeck-servers, color: 2196f3, vm_role: true, parent: "@dcim/device-roles?slug=starship-systems"}
+  - {name: Transporter Switches, slug: transporter-switches, color: 4caf50, parent: "@dcim/device-roles?slug=starship-systems",
+     config_template: "@extras/config-templates?name=Bat-Computer Base Config", owner: "@users/owners?name=Frodo Baggins"}

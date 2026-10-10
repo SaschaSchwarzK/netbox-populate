@@ -1,0 +1,10 @@
+# Install the child blade into the parent chassis (child devices go into device bays).
+endpoint: dcim/device-bays
+mode: update
+lookup: [device, name]
+objects:
+  - device: "@dcim/devices?name=t800-chassis-01&site=death-star-ii"
+    name: Blade Bay 1
+    installed_device: "@dcim/devices?name=t800-blade-01&site=death-star-ii"
+    description: Hosts the T-800 blade
+    tags: [pied-piper]

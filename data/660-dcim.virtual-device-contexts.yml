@@ -1,0 +1,7 @@
+endpoint: dcim/virtual-device-contexts
+lookup: [device, name]
+objects:
+  - {name: VDC-Empire, device: "@dcim/devices?name=nexus-core-01&site=death-star-ii", identifier: 1, status: active,
+     tenant: "@tenancy/tenants?slug=galactic-empire", description: Production context, tags: [pied-piper]}
+  - {name: VDC-Rebels, device: "@dcim/devices?name=nexus-core-01&site=death-star-ii", identifier: 2, status: planned}
+  - {name: VDC-Offline, device: "@dcim/devices?name=nexus-core-02&site=death-star-ii", status: offline, comments: Not used}

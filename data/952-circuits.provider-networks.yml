@@ -1,0 +1,5 @@
+endpoint: circuits/provider-networks
+lookup: [provider, name]
+objects:
+  - {provider: "@circuits/providers?slug=pan-galactic-carrier", name: Hyperspace Backbone, service_id: HB-1, description: Cloud shaped provider network}
+  - {provider: "@circuits/providers?slug=gringotts-telecom", name: Vault Network, service_id: VN-9}

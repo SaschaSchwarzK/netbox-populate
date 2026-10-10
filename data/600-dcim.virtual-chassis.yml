@@ -1,0 +1,4 @@
+# The master is set later (file 620) once the member devices exist.
+endpoint: dcim/virtual-chassis
+objects:
+  - {name: Nexus Stack, domain: nexus-stack-1, description: Two switches acting as one, tags: [pied-piper], owner: "@users/owners?name=Lucius Fox"}

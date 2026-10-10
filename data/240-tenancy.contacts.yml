@@ -1,0 +1,16 @@
+endpoint: tenancy/contacts
+objects:
+  - name: Montgomery Scott
+    title: Chief Engineer
+    phone: "+1-555-0100"
+    email: scotty@enterprise.example
+    address: "USS Enterprise NCC-1701, Engineering Deck, Starfleet"
+    link: https://wiki.example.com/scotty
+    groups: ["@tenancy/contact-groups?slug=engineering-crew"]
+    description: Fake contact
+    tags: [pied-piper]
+  - name: Nyota Uhura
+    title: Communications Officer
+    email: uhura@enterprise.example
+    groups: ["@tenancy/contact-groups?slug=bridge-crew"]
+    owner: "@users/owners?name=Frodo Baggins"

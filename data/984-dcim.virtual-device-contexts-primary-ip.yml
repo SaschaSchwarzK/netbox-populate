@@ -1,0 +1,5 @@
+endpoint: dcim/virtual-device-contexts
+mode: update
+lookup: [device, name]
+objects:
+  - {name: VDC-Empire, device: "@dcim/devices?name=nexus-core-01&site=death-star-ii", primary_ip4: "@ipam/ip-addresses?address=198.18.1.10/24"}

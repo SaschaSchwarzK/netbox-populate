@@ -1,0 +1,75 @@
+# Devices are created from the device types above; NetBox instantiates the component templates.
+endpoint: dcim/devices
+lookup: [name, site]
+objects:
+  - name: nexus-core-01
+    device_type: "@dcim/device-types?slug=nexus-6-core-switch"
+    role: "@dcim/device-roles?slug=transporter-switches"
+    site: "@dcim/sites?slug=death-star-ii"
+    location: "@dcim/locations?slug=superlaser-level"
+    rack: "@dcim/racks?name=DS2-R01&site=death-star-ii"
+    position: 40
+    face: front
+    tenant: "@tenancy/tenants?slug=galactic-empire"
+    platform: "@dcim/platforms?slug=replicant-os-6"
+    status: active
+    serial: NX6-0001
+    asset_tag: DS2-ASSET-0001
+    airflow: front-to-rear
+    latitude: 0.0002
+    longitude: -0.0002
+    virtual_chassis: "@dcim/virtual-chassis?name=Nexus Stack"
+    vc_position: 1
+    vc_priority: 255
+    config_template: "@extras/config-templates?name=Bat-Computer Base Config"
+    local_context_data: {ntp: [pool.ntp.example.com], banner: "Do not eat the Tribbles"}
+    description: Stack member 1
+    comments: Primary core switch for the station.
+    tags: [pied-piper, stark-industries]
+    owner: "@users/owners?name=Lucius Fox"
+    custom_fields:
+      ship_registry: NCC-1701A
+      crew_log: "Captain's log, stardate 41153.7. The Nexus is operational."
+      warp_factor: 9
+      power_draw_gigawatts: 0.9
+      cloaked: true
+      commissioned_on: 2026-03-22
+      last_jump_at: "2026-03-22T08:30:00Z"
+      tech_manual_url: https://wiki.example.com/nexus-6
+      deflector_config: {shield_frequency: 512.0, mode: standard}
+      house: hufflepuff
+      crew_ranks: [lieutenant, commander]
+      departure_airport: GTH
+      home_site: "@dcim/sites?slug=death-star-ii"
+      sponsoring_tenant: "@tenancy/tenants?slug=galactic-empire"
+  - {name: nexus-core-02, device_type: "@dcim/device-types?slug=nexus-6-core-switch", role: "@dcim/device-roles?slug=transporter-switches",
+     site: "@dcim/sites?slug=death-star-ii", location: "@dcim/locations?slug=superlaser-level", rack: "@dcim/racks?name=DS2-R01&site=death-star-ii",
+     position: 39, face: front, tenant: "@tenancy/tenants?slug=galactic-empire", platform: "@dcim/platforms?slug=replicant-os-6",
+     status: staged, serial: NX6-0002, airflow: rear-to-front, virtual_chassis: "@dcim/virtual-chassis?name=Nexus Stack", vc_position: 2, vc_priority: 100,
+     description: Stack member 2}
+  - {name: pdu-ds2-a, device_type: "@dcim/device-types?slug=acme-rocket-pdu-12", role: "@dcim/device-roles?slug=starship-systems",
+     site: "@dcim/sites?slug=death-star-ii", rack: "@dcim/racks?name=DS2-R01&site=death-star-ii", status: active, serial: ACME-PDU-0001,
+     description: Zero-U PDU mounted on the rack side}
+  - {name: t800-chassis-01, device_type: "@dcim/device-types?slug=cyberdyne-t-800-chassis", role: "@dcim/device-roles?slug=warp-core-controllers",
+     site: "@dcim/sites?slug=death-star-ii", rack: "@dcim/racks?name=DS2-R01&site=death-star-ii", position: 30, face: front,
+     platform: "@dcim/platforms?slug=skynet-linux", status: active, serial: T800-0001}
+  - {name: t800-blade-01, device_type: "@dcim/device-types?slug=cyberdyne-t-800-blade", role: "@dcim/device-roles?slug=holodeck-servers",
+     site: "@dcim/sites?slug=death-star-ii", status: active, serial: T800-B-0001, description: Installed in a device bay later}
+  - {name: patch-panel-hogwarts, device_type: "@dcim/device-types?slug=hooli-patch-panel-24", role: "@dcim/device-roles?slug=starship-systems",
+     site: "@dcim/sites?slug=hogwarts-castle", location: "@dcim/locations?slug=great-hall", rack: "@dcim/racks?name=HOG-R01&site=hogwarts-castle",
+     position: 5, face: front, status: planned}
+  - {name: fiber-tray-hogwarts, device_type: "@dcim/device-types?slug=wonka-fiber-tray", role: "@dcim/device-roles?slug=starship-systems",
+     site: "@dcim/sites?slug=hogwarts-castle", location: "@dcim/locations?slug=great-hall", rack: "@dcim/racks?name=HOG-R01&site=hogwarts-castle",
+     position: 6, face: rear, status: offline}
+  - {name: ap-great-hall, device_type: "@dcim/device-types?slug=wonka-everlasting-ap", role: "@dcim/device-roles?slug=starship-systems",
+     site: "@dcim/sites?slug=hogwarts-castle", location: "@dcim/locations?slug=great-hall", status: active, platform: "@dcim/platforms?slug=enchanted-firmware",
+     latitude: 57.1001, longitude: -5.0001, description: Ceiling mounted, enchanted}
+  - {name: nexus-spare-01, device_type: "@dcim/device-types?slug=nexus-6-core-switch", role: "@dcim/device-roles?slug=transporter-switches",
+     site: "@dcim/sites?slug=minas-tirith-tower", status: inventory, serial: NX6-SPARE-1}
+  - {name: nexus-failed-01, device_type: "@dcim/device-types?slug=nexus-6-core-switch", role: "@dcim/device-roles?slug=transporter-switches",
+     site: "@dcim/sites?slug=minas-tirith-tower", rack: "@dcim/racks?name=MT-R01&site=minas-tirith-tower", position: 3, face: front,
+     status: failed, serial: NX6-DEAD-1, comments: Struck by lightning}
+  - {name: nexus-retired-01, device_type: "@dcim/device-types?slug=nexus-6-core-switch", role: "@dcim/device-roles?slug=transporter-switches",
+     site: "@dcim/sites?slug=red-keep-colo", status: decommissioning, tenant: "@tenancy/tenants?slug=weyland-yutani"}
+  - {name: ap-owlery, device_type: "@dcim/device-types?slug=wonka-everlasting-ap", role: "@dcim/device-roles?slug=starship-systems",
+     site: "@dcim/sites?slug=hogwarts-castle", status: active, description: Second access point for the point-to-point wireless link}

@@ -1,0 +1,5 @@
+endpoint: virtualization/virtual-machine-types
+lookup: [slug]
+objects:
+  - {name: Small Droid, slug: small-droid, default_vcpus: 0.5, default_memory: 512, description: R2 class, default_platform: "@dcim/platforms?slug=skynet-linux"}
+  - {name: Large Mainframe, slug: large-mainframe, default_vcpus: 16, default_memory: 65536, owner: "@users/owners?name=Lucius Fox", tags: [pied-piper]}

@@ -1,0 +1,17 @@
+# Circuits in every status, with dates, commit rate, distance and tenant.
+endpoint: circuits/circuits
+lookup: [cid]
+defaults:
+  provider: "@circuits/providers?slug=gringotts-telecom"
+objects:
+  - {cid: GT-OWL-0001, type: "@circuits/circuit-types?slug=owl-post", status: active, provider_account: "@circuits/provider-accounts?account=GT-0713",
+     tenant: "@tenancy/tenants?slug=hogwarts-school", install_date: 2026-01-15, commit_rate: 1000000, distance: 520, distance_unit: km,
+     description: Main uplink, tags: [pied-piper]}
+  - {cid: GT-OWL-0002, type: "@circuits/circuit-types?slug=owl-post", status: planned}
+  - {cid: GT-FLOO-0001, type: "@circuits/circuit-types?slug=floo-network", status: provisioning, install_date: 2026-12-01}
+  - {cid: GT-FLOO-0002, type: "@circuits/circuit-types?slug=floo-network", status: offline, commit_rate: 100000, distance: 12, distance_unit: mi}
+  - {cid: GT-FLOO-0003, type: "@circuits/circuit-types?slug=floo-network", status: deprovisioning, termination_date: 2026-11-30}
+  - {cid: GT-OWL-0003, type: "@circuits/circuit-types?slug=owl-post", status: decommissioned, install_date: 2020-01-01, termination_date: 2025-12-31,
+     distance: 800, distance_unit: ft, owner: "@users/owners?name=Lucius Fox"}
+  - {cid: PGC-HYPER-1, provider: "@circuits/providers?slug=pan-galactic-carrier", type: "@circuits/circuit-types?slug=floo-network", status: active,
+     provider_account: "@circuits/provider-accounts?account=PGC-42", distance: 4.2, distance_unit: km}

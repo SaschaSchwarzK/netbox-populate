@@ -1,0 +1,12 @@
+# SSIDs with every status, authentication type and cipher.
+endpoint: wireless/wireless-lans
+lookup: [ssid]
+objects:
+  - {ssid: Marauders-Map, group: "@wireless/wireless-lan-groups?slug=staff-networks", status: active, vlan: "@ipam/vlans?name=GreatHall-Guests",
+     scope_type: dcim.location, scope_id: "@dcim/locations?slug=great-hall", tenant: "@tenancy/tenants?slug=hogwarts-school",
+     auth_type: wpa-personal, auth_cipher: aes, auth_psk: mischief-managed-fake, description: Solemnly swear}
+  - {ssid: Dobby-Free-Wifi, group: "@wireless/wireless-lan-groups?slug=hogwarts-wifi", status: reserved, auth_type: open}
+  - {ssid: Ministry-Enterprise, status: active, auth_type: wpa-enterprise, auth_cipher: auto, scope_type: dcim.site,
+     scope_id: "@dcim/sites?slug=hogwarts-castle", tags: [pied-piper]}
+  - {ssid: Legacy-WEP, status: deprecated, auth_type: wep, auth_cipher: tkip, auth_psk: oldkey123, comments: Please retire}
+  - {ssid: Hidden-Fortress, status: disabled, scope_type: dcim.region, scope_id: "@dcim/regions?slug=the-north"}

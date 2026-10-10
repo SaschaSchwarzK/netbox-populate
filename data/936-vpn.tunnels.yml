@@ -1,0 +1,13 @@
+# One tunnel per encapsulation type and status.
+endpoint: vpn/tunnels
+lookup: [name]
+objects:
+  - {name: Vault-IPsec-Tunnel, status: active, group: "@vpn/tunnel-groups?slug=underground-tunnels", encapsulation: ipsec-tunnel,
+     ipsec_profile: "@vpn/ipsec-profiles?name=Vault-Profile", tenant: "@tenancy/tenants?slug=wayne-enterprises", tunnel_id: 1001}
+  - {name: Transport-Tunnel, status: active, encapsulation: ipsec-transport, ipsec_profile: "@vpn/ipsec-profiles?name=Legacy-Profile"}
+  - {name: Hyperspace-GRE, status: planned, group: "@vpn/tunnel-groups?slug=hyperspace-lanes", encapsulation: gre, tunnel_id: 2002}
+  - {name: Shire-Wireguard, status: active, encapsulation: wireguard, description: Mellon, owner: "@users/owners?name=Frodo Baggins"}
+  - {name: Ring-IPIP, status: disabled, encapsulation: ip-ip}
+  - {name: Rebel-OpenVPN, status: active, encapsulation: openvpn, tags: [pied-piper]}
+  - {name: Legacy-L2TP, status: disabled, encapsulation: l2tp}
+  - {name: Ancient-PPTP, status: disabled, encapsulation: pptp, comments: Do not use}

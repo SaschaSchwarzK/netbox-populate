@@ -1,0 +1,8 @@
+endpoint: tenancy/tenants
+lookup: [slug]
+objects:
+  - {name: Galactic Empire, slug: galactic-empire, group: "@tenancy/tenant-groups?slug=galaxy-far-far-away",
+     description: Order and security, tags: [pied-piper], owner: "@users/owners?name=Lucius Fox"}
+  - {name: Hogwarts School, slug: hogwarts-school, group: "@tenancy/tenant-groups?slug=wizarding-world", comments: Magic not included.}
+  - {name: Wayne Enterprises, slug: wayne-enterprises, group: "@tenancy/tenant-groups?slug=fictional-universes"}
+  - {name: Weyland-Yutani, slug: weyland-yutani, description: Building better worlds}

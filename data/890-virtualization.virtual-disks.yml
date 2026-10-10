@@ -1,0 +1,6 @@
+endpoint: virtualization/virtual-disks
+lookup: [virtual_machine, name]
+objects:
+  - {virtual_machine: "@virtualization/virtual-machines?name=r2-d2", name: boot, size: 8, description: Boot disk}
+  - {virtual_machine: "@virtualization/virtual-machines?name=hal-9000", name: pod-bay-doors, size: 512, tags: [pied-piper]}
+  - {virtual_machine: "@virtualization/virtual-machines?name=hal-9000", name: memory-core, size: 512}

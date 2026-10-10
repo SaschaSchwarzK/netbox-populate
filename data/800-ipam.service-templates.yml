@@ -1,0 +1,5 @@
+endpoint: ipam/service-templates
+objects:
+  - {name: Holodeck Web, protocol: tcp, ports: [80, 443], description: HTTP and HTTPS, tags: [pied-piper]}
+  - {name: Subspace DNS, protocol: udp, ports: [53]}
+  - {name: Diameter Signalling, protocol: sctp, ports: [3868], owner: "@users/owners?name=Frodo Baggins"}

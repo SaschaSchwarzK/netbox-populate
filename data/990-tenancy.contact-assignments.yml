@@ -1,0 +1,12 @@
+# Contacts can be assigned to (almost) any object with a role and a priority.
+endpoint: tenancy/contact-assignments
+lookup: [contact, object_id]
+objects:
+  - {object_type: dcim.site, object_id: "@dcim/sites?slug=death-star-ii", contact: "@tenancy/contacts?name=Montgomery Scott",
+     role: "@tenancy/contact-roles?slug=chief-engineer", priority: primary}
+  - {object_type: dcim.device, object_id: "@dcim/devices?name=nexus-core-02&site=death-star-ii", contact: "@tenancy/contacts?name=Montgomery Scott",
+     role: "@tenancy/contact-roles?slug=quartermaster", priority: secondary}
+  - {object_type: circuits.circuit, object_id: "@circuits/circuits?cid=GT-OWL-0001", contact: "@tenancy/contacts?name=Nyota Uhura",
+     role: "@tenancy/contact-roles?slug=quartermaster", priority: tertiary, tags: [pied-piper]}
+  - {object_type: tenancy.tenant, object_id: "@tenancy/tenants?slug=galactic-empire", contact: "@tenancy/contacts?name=Nyota Uhura",
+     role: "@tenancy/contact-roles?slug=chief-engineer", priority: inactive}

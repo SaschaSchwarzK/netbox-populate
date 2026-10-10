@@ -1,0 +1,23 @@
+# Services belong to a device, VM or FHRP group (generic parent) and can list IP addresses.
+endpoint: ipam/services
+lookup: [name]
+objects:
+  - name: ssh-nexus-core-01
+    parent_object_type: dcim.device
+    parent_object_id: "@dcim/devices?name=nexus-core-01&site=death-star-ii"
+    protocol: tcp
+    ports: [22]
+    ipaddresses: ["@ipam/ip-addresses?address=198.18.1.10/24"]
+    description: Management access
+  - name: dns-anycast
+    parent_object_type: dcim.device
+    parent_object_id: "@dcim/devices?name=nexus-core-02&site=death-star-ii"
+    protocol: udp
+    ports: [53, 5353]
+    ipaddresses: ["@ipam/ip-addresses?address=198.18.1.7/24", "@ipam/ip-addresses?address=198.18.1.20/24"]
+  - name: gateway-heartbeat
+    parent_object_type: ipam.fhrpgroup
+    parent_object_id: "@ipam/fhrp-groups?protocol=vrrp3&group_id=10"
+    protocol: sctp
+    ports: [9000]
+    comments: Parent is an FHRP group

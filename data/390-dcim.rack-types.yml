@@ -1,0 +1,15 @@
+# Rack types are reusable rack definitions (dimensions, form factor, weights).
+endpoint: dcim/rack-types
+lookup: [slug]
+objects:
+  - {manufacturer: "@dcim/manufacturers?slug=acme-corporation", model: RoadRunner 42U, slug: acme-roadrunner-42u,
+     form_factor: 4-post-cabinet, width: 19, u_height: 42, starting_unit: 1, desc_units: false,
+     outer_width: 600, outer_height: 2000, outer_depth: 1200, outer_unit: mm,
+     weight: 120.5, max_weight: 1200, weight_unit: kg, mounting_depth: 800, description: Beep beep}
+  - {manufacturer: "@dcim/manufacturers?slug=wonka-industries", model: Everlasting Wall Cabinet 12U, slug: wonka-wall-cabinet-12u,
+     form_factor: wall-cabinet, width: 19, u_height: 12, desc_units: true,
+     outer_width: 24, outer_height: 28, outer_depth: 20, outer_unit: in, weight: 250, max_weight: 600, weight_unit: lb}
+  - {manufacturer: "@dcim/manufacturers?slug=hooli", model: Open Frame 48U, slug: hooli-open-frame-48u,
+     form_factor: 2-post-frame, width: 23, u_height: 48, starting_unit: 5, tags: [pied-piper]}
+  - {manufacturer: "@dcim/manufacturers?slug=tyrell-corporation", model: Replicant Wall Frame, slug: tyrell-wall-frame,
+     form_factor: wall-frame-vertical, width: 10, u_height: 6, weight: 12000, weight_unit: g}

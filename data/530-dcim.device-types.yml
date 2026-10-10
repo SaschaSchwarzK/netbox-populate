@@ -1,0 +1,20 @@
+endpoint: dcim/device-types
+lookup: [slug]
+objects:
+  - {manufacturer: "@dcim/manufacturers?slug=tyrell-corporation", model: Nexus-6 Core Switch, slug: nexus-6-core-switch,
+     default_platform: "@dcim/platforms?slug=replicant-os-6", part_number: TY-N6-48X, u_height: 1, is_full_depth: true,
+     airflow: front-to-rear, weight: 9.5, weight_unit: kg, description: Core switch with every interface flavour}
+  - {manufacturer: "@dcim/manufacturers?slug=acme-corporation", model: Rocket PDU 12, slug: acme-rocket-pdu-12,
+     part_number: ACME-PDU-12, u_height: 0, exclude_from_utilization: true, is_full_depth: false, airflow: passive,
+     weight: 4, weight_unit: lb, description: Zero-U power distribution unit}
+  - {manufacturer: "@dcim/manufacturers?slug=cyberdyne-systems", model: T-800 Chassis, slug: cyberdyne-t-800-chassis,
+     default_platform: "@dcim/platforms?slug=skynet-linux", u_height: 4, subdevice_role: parent, airflow: side-to-rear,
+     weight: 40, weight_unit: lb, owner: "@users/owners?name=Lucius Fox", comments: Parent chassis with device bays}
+  - {manufacturer: "@dcim/manufacturers?slug=cyberdyne-systems", model: T-800 Blade, slug: cyberdyne-t-800-blade,
+     u_height: 0, subdevice_role: child, airflow: rear-to-front, weight: 900, weight_unit: g}
+  - {manufacturer: "@dcim/manufacturers?slug=hooli", model: Cat6 Patch Panel 24, slug: hooli-patch-panel-24,
+     u_height: 0.5, is_full_depth: false, airflow: passive, tags: [pied-piper]}
+  - {manufacturer: "@dcim/manufacturers?slug=wonka-industries", model: Fiber Splice Tray, slug: wonka-fiber-tray,
+     u_height: 1, airflow: mixed, weight: 2, weight_unit: oz}
+  - {manufacturer: "@dcim/manufacturers?slug=wonka-industries", model: Everlasting Wi-Fi AP, slug: wonka-everlasting-ap,
+     u_height: 0, exclude_from_utilization: true, airflow: left-to-right, part_number: WK-AP-6E}

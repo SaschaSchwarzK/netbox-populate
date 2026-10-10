@@ -1,0 +1,9 @@
+endpoint: extras/notification-groups
+lookup_mode: scan   # no name filter on this endpoint
+objects:
+  - name: Rebel Command
+    description: Gets all the bad news first
+    users: ["@users/users?username=leia.organa"]
+    groups: ["@users/groups?name=Rebel Alliance"]
+  - name: Watchers on the Wall
+    users: ["@users/users?username=jon.snow"]
